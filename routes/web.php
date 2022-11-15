@@ -21,15 +21,12 @@ use Illuminate\Support\Facades\Route;
 
 // Admin
 Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['web']], function () {
-    
+
     Route::get('/', 'DashboardController@index')->name('dashboards');
 
-    Route::prefix('account_admin')->group(function () {
-        
-    Route::get('/', 'AkunController@index')->name('akun');
-    Route::get('/data', 'AkunController@data')->name('akun.tambah');
-        
+    Route::prefix('/account_admin')->group(function () {
 
+        Route::get('/', 'AkunController@index')->name('akun');
+        Route::get('/data', 'AkunController@data')->name('tambah');
     });
-
 });

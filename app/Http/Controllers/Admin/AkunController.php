@@ -14,10 +14,17 @@ class AkunController extends Controller
             'content'   => 'admin/akun/index'
         );
 
-        return view('admin.app', $data);
+        return view('layouts.app', $data);
     }
 
     public function data() {
-        return "data tabel";
+
+        $data = array (
+            'title'     => 'Data Akun',
+            'content'   => 'admin/akun/tambah'
+        );
+        
+
+        return view('layouts.app', $data);
     }
 }
