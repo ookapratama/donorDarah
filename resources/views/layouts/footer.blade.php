@@ -21,13 +21,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="{{ asset('assets/js/stisla.js') }}"></script>
 
-<!-- JS Libraies -->
-<script src="../node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
-<script src="../node_modules/chart.js/dist/Chart.min.js"></script>
-<script src="../node_modules/jqvmap/dist/jquery.vmap.min.js"></script>
-<script src="../node_modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-<script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
-<script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+ <!-- JS Libraies -->
+ <script src="{{ asset('assets/node_modules/cleave.js/dist/cleave.min.js')}}"></script>
+ <script src="{{ asset('assets/node_modules/cleave.js/dist/addons/cleave-phone.us.js')}}"></script>
+ <script src="{{ asset('assets/node_modules/jquery-pwstrength/jquery.pwstrength.min.js')}}"></script>
+ <script src="{{ asset('assets/node_modules/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+ <script src="{{ asset('assets/node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')}}"></script>
+ <script src="{{ asset('assets/node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}"></script>
+ <script src="{{ asset('assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js')}}"></script>
+ <script src="{{ asset('assets/node_modules/select2/dist/js/select2.full.min.js')}}"></script>
+ <script src="{{ asset('assets/node_modules/selectric/public/jquery.selectric.min.js')}}"></script>
+
 
 <!-- Template JS File -->
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
@@ -35,6 +39,8 @@
 
 <!-- Page Specific JS File -->
 <script src="{{ asset('assets/js/page/index-0.js') }}"></script>
+<script src="{{ asset('assets/js/page/forms-advanced-forms.js')}}"></script>
+
 
 </body>
 

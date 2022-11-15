@@ -23,7 +23,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('akun') }}">Data Admin</a></li>
-                    <li><a class="nav-link" href="{{ route('tambah') }}">Tambah Admin</a></li>
+                    <li><a class="nav-link" href="{{ route('account_admin.tambah') }}">Tambah Admin</a></li>
                 </ul>
             </li>
             

@@ -24,9 +24,14 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
 
     Route::get('/', 'DashboardController@index')->name('dashboards');
 
-    Route::prefix('/account_admin')->group(function () {
+    Route::group(['prefix' => '/account_admin'], function () {
 
         Route::get('/', 'AkunController@index')->name('akun');
-        Route::get('/data', 'AkunController@data')->name('tambah');
-    });
+        Route::get('/data', 'AkunController@data')->name('account_admin.tambah');
+        Route::post('/store', 'AkunController@store')->name('account_admin.store');
+
+    }); 
+
+    
+
 });
