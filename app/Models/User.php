@@ -22,6 +22,9 @@ class User extends Authenticatable
         'nama',
         'username',
         'password',
+        'jkl',
+        'alamat',
+        'tgl_lahir',
         'role'
     ];
 
