@@ -27,7 +27,8 @@
                                  <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                              </div>
                              <div class="m-3 mr-4">
-                                 <a href="{{ route('account_admin.tambah') }}" class="btn btn-success text-right p-2 px-3"><i class="fas fa-plus"></i> Tambah </a>
+                                 <a href="{{ route('account_admin.tambah') }}"
+                                     class="btn btn-success text-right p-2 px-3"><i class="fas fa-plus"></i> Tambah </a>
                              </div>
                          </div>
                          <div class="card-body">
@@ -40,34 +41,41 @@
                                              </th>
                                              <th width="5%" class="text-center">Profile</th>
                                              <th>Nama Lengkap</th>
-                                             <th>Email</th>
+                                             <th>Username</th>
+                                             <th>Role</th>
                                              <th width="15%">Action</th>
                                          </tr>
                                      </thead>
                                      <tbody>
-                                         <tr>
-                                             <td>1</td>
-                                             <td>
-                                                 <img alt="image" src="../assets/img/avatar/avatar-5.png"
-                                                     class="rounded-circle m-3" width="80" data-toggle="tooltip"
-                                                     title="Wildan Ahdian" />
-                                             </td>
-                                             <td>
-                                                 Judhistira Ooka Pratama
-                                             </td>
-                                             <td class="align-middle">
-                                                 aaaaa@gmail.com
-                                             <td>
-                                                 <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
-                                                     title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                 <a class="btn btn-danger btn-action" data-toggle="tooltip"
-                                                     title="Delete"
-                                                     data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                                     data-confirm-yes="alert('Deleted')">
-                                                     <i class="fas fa-trash"></i>
-                                                 </a>
-                                             </td>
-                                         </tr>
+                                         @foreach ($data as $v)
+                                             <tr>
+                                                 <td>{{ $no++ }}</td>
+                                                 <td>
+                                                     <img alt="{{ $v->nama }}" src="{{ asset('image/' . $v->profile  ) }}"
+                                                         class="rounded-circle m-3" width="80" data-toggle="tooltip"
+                                                         title="{{ $v->nama }}" />
+                                                 </td>
+                                                 <td>
+                                                     {{ $v->nama }}
+                                                 </td>
+                                                 <td class="align-middle">
+                                                     {{ $v->username }}
+                                                 </td>
+                                                 <td class="align-middle">
+                                                     {{ $v->role }}
+                                                 </td>
+                                                <td>  
+                                                     <a href="{{ route('account_admin.show', $v->id ) }}" class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
+                                                         title="Edit"><i class="fas fa-pencil-alt"></i>
+                                                     </a>
+                                                     
+                                                     <a href="{{ route('account_admin.delete', $v->id) }}" class="btn btn-danger btn-action" data-toggle="tooltip"
+                                                         title="Delete">
+                                                         <i class="fas fa-trash"></i>
+                                                     </a>
+                                                 </td>
+                                             </tr>
+                                         @endforeach
 
 
                              </div>
