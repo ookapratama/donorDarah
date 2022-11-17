@@ -62,7 +62,7 @@ class AkunController extends Controller
 
         // dd($dt);
         $data = array(
-            'title'     => 'Data Akun',
+            'title'     => 'Data Admin',
             'content'   => 'admin/akun/edit',
             'dt'        => $dt
         );

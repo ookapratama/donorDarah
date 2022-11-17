@@ -26,6 +26,15 @@
                     <li><a class="nav-link" href="{{ route('account_admin.tambah') }}">Tambah Admin</a></li>
                 </ul>
             </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="far fa-user"></i>
+                    <span>Petugas</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('akun') }}">Data Petugas</a></li>
+                    <li><a class="nav-link" href="{{ route('account_petugas.tambah') }}">Tambah Petugas</a></li>
+                </ul>
+            </li>
             
             
         </ul>

@@ -33,6 +33,17 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
         Route::post('/update', 'AkunController@update')->name('account_admin.update');
         Route::delete('delete/{id}', 'AkunController@destroy')->name('account_admin.delete');
 
+    });
+
+    Route::group(['prefix' => '/account_petugas'], function () {
+
+        Route::get('/', 'AkunController@index')->name('akun');
+        Route::get('/data', 'AkunController@data')->name('account_petugas.tambah');
+        Route::post('/store', 'AkunController@store')->name('account_petugas.store');
+        Route::get('/show/{id}', 'AkunController@show')->name('account_petugas.show');
+        Route::post('/update', 'AkunController@update')->name('account_petugas.update');
+        Route::delete('delete/{id}', 'AkunController@destroy')->name('account_petugas.delete');
+
     }); 
 
     
