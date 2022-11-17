@@ -102,8 +102,8 @@ class AkunController extends Controller
         return redirect()->route('akun');
     }
 
-    public function delete($id) {
-
+    public function destroy($id) {
+        // dd($id);
         DB::table('users')->where('id', $id)->delete();
         
         return redirect()->route('akun');

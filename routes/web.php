@@ -31,7 +31,7 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
         Route::post('/store', 'AkunController@store')->name('account_admin.store');
         Route::get('/show/{id}', 'AkunController@show')->name('account_admin.show');
         Route::post('/update', 'AkunController@update')->name('account_admin.update');
-        Route::delete('/delete/{id}', 'AkunController@delete')->name('account_admin.delete');
+        Route::delete('delete/{id}', 'AkunController@destroy')->name('account_admin.delete');
 
     }); 
 

@@ -51,7 +51,8 @@
                                              <tr>
                                                  <td>{{ $no++ }}</td>
                                                  <td>
-                                                     <img alt="{{ $v->nama }}" src="{{ asset('image/' . $v->profile  ) }}"
+                                                     <img alt="{{ $v->nama }}"
+                                                         src="{{ asset('image/' . $v->profile) }}"
                                                          class="rounded-circle m-3" width="80" data-toggle="tooltip"
                                                          title="{{ $v->nama }}" />
                                                  </td>
@@ -64,15 +65,20 @@
                                                  <td class="align-middle">
                                                      {{ $v->role }}
                                                  </td>
-                                                <td>  
-                                                     <a href="{{ route('account_admin.show', $v->id ) }}" class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
-                                                         title="Edit"><i class="fas fa-pencil-alt"></i>
-                                                     </a>
-                                                     
-                                                     <a href="{{ route('account_admin.delete', $v->id) }}" class="btn btn-danger btn-action" data-toggle="tooltip"
-                                                         title="Delete">
-                                                         <i class="fas fa-trash"></i>
-                                                     </a>
+                                                 <td>
+                                                     <form action="{{ route('account_admin.delete', $v->id) }}" method="POST">
+                                                        <a href="{{ route('account_admin.show', $v->id) }}"
+                                                            class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
+                                                            title="Edit"><i class="fas fa-pencil-alt"></i>
+                                                        </a>
+                                                        {{ method_field('delete') }}
+                                                        {{ csrf_field() }}
+                                                        <button 
+                                                             class="btn btn-danger btn-action" data-toggle="tooltip"
+                                                             title="Delete">
+                                                             <i class="fas fa-trash"></i>
+                                                         </button>
+                                                     </form>
                                                  </td>
                                              </tr>
                                          @endforeach
