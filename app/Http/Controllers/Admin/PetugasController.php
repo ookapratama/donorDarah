@@ -79,10 +79,9 @@ class PetugasController extends Controller
     {
 
         // $user = User::findOrFail($id);
-        // dd($user);
+        // dd($request);
         if ($request->hasFile('profile')) {
-
-
+                
             $namaGambar = time() . '.' . $request->profile->extension();
 
             $request->profile->move(public_path('image'), $namaGambar);
@@ -108,7 +107,6 @@ class PetugasController extends Controller
                 'role'          => $request->role,
             ]);
         }
-
 
         return redirect()->route('petugas');
     }

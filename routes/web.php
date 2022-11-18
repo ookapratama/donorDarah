@@ -41,7 +41,7 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
         Route::get('/data', 'PetugasController@data')->name('account_petugas.tambah');
         Route::post('/store', 'PetugasController@store')->name('account_petugas.store');
         Route::get('/show/{id}', 'PetugasController@show')->name('account_petugas.show');
-        Route::post('/update', 'PetugasController@update')->name('account_petugas.update');
+        Route::put('/update', 'PetugasController@update')->name('account_petugas.update');
         Route::delete('delete/{id}', 'PetugasController@destroy')->name('account_petugas.delete');
 
     }); 
