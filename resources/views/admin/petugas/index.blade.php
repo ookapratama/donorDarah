@@ -8,7 +8,7 @@
                      <a href="{{ route('dashboards') }}">Dashboard</a>
                  </div>
                  <div class="breadcrumb-item">
-                     <a href="{{ route('akun') }}">Admin</a>
+                     <a href="{{ route('petugas') }}">Petugas</a>
                  </div>
              </div>
          </div>
@@ -27,7 +27,7 @@
                                  <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                              </div>
                              <div class="m-3 mr-4">
-                                 <a href="{{ route('account_admin.tambah') }}"
+                                 <a href="{{ route('account_petugas.tambah') }}"
                                      class="btn btn-success text-right p-2 px-3"><i class="fas fa-plus"></i> Tambah </a>
                              </div>
                          </div>
@@ -42,8 +42,11 @@
                                              <th width="5%" class="text-center">Profile</th>
                                              <th>Nama Lengkap</th>
                                              <th>Username</th>
+                                             <th>Gender</th>
+                                             <th>Alamat</th>
+                                             <th>Kelahiran</th>
                                              <th>Role</th>
-                                             <th width="15%">Action</th>
+                                             <th width="13%">Action</th>
                                          </tr>
                                      </thead>
                                      <tbody>
@@ -63,11 +66,20 @@
                                                      {{ $v->username }}
                                                  </td>
                                                  <td class="align-middle">
+                                                     {{ $v->jkl }}
+                                                 </td>
+                                                 <td class="align-middle">
+                                                     {{ $v->alamat }}
+                                                 </td>
+                                                 <td class="align-middle">
+                                                     {{ $v->tgl_lahir }}
+                                                 </td>
+                                                 <td class="align-middle">
                                                      {{ $v->role }}
                                                  </td>
                                                  <td>
-                                                     <form action="{{ route('account_admin.delete', $v->id) }}" method="POST">
-                                                        <a href="{{ route('account_admin.show', $v->id) }}"
+                                                     <form action="{{ route('account_petugas.delete', $v->id) }}" method="POST">
+                                                        <a href="{{ route('account_petugas.show', $v->id) }}"
                                                             class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
                                                             title="Edit"><i class="fas fa-pencil-alt"></i>
                                                         </a>

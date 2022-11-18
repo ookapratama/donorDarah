@@ -2,7 +2,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Akun Admin</h1>
+            <h1>{{ $title }}</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('dashboards') }}">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="{{ route('akun') }}">Akun</a></div>

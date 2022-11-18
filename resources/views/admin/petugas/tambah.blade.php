@@ -5,7 +5,7 @@
             <h1>{{ $title }}</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('dashboards') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('akun') }}">Akun</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('petugas') }}">Akun</a></div>
                 <div class="breadcrumb-item">Tambah Akun</div>
             </div>
         </div>
@@ -16,14 +16,13 @@
                 <div class="col-10">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Tambah Akun Admin</h4>
+                            <h4>Tambah Akun Petugas</h4>
                         </div>
                         <div class="card-body">
                             {{-- form --}}
-                            <form action="{{ route('account_admin.store') }}" enctype="multipart/form-data" method="POST" class="needs-validation" novalidate="">
+                            <form action="{{ route('account_petugas.store') }}" enctype="multipart/form-data" method="POST" class="needs-validation" novalidate="">
                                 {{ csrf_field() }}
                                 <div class="card-body">
-                                    <input type="hidden" value="Admin" name="role">
                                     <div class="form-group">
                                         <label>Nama Lengkap</label>
                                         <input type="text" name="nama" class="form-control" required="" />
@@ -79,8 +78,59 @@
 
                                         </div>
 
-                                        
+                                        <div class="form-group col-md-5">
+                                            <input type="hidden" value="Petugas" name="role">
+                                            <label>Gender</label>
+
+                                            <div class="input-group">
+
+                                                <select class="form-control select1" name="jkl">
+                                                    <option >-- Silahkan Pilih Gender  --</option>
+                                                    <option value="Laki-laki">Laki-laki</option>
+                                                    <option value="Perempuan">Perempuan</option>
+                                                </select>
+
+                                                
+                                            </div>
+
+                                        </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md">
+                                            <label>Alamat</label>
+
+                                            <div class="input-group">
+
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="ion ion-ios-home  "></i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" name="alamat" class="form-control" required="" />
+                                                <div class="invalid-feedback">
+                                                    Masukkan Alamat
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group col-md-5">
+                                            <input type="hidden" value="Petugas" name="role">
+                                            <label>Tanggal Lahir</label>
+
+                                            <div class="input-group">
+
+                                                <input
+                                                name="tgl_lahir"
+                                                class="form-control datepicker"
+                                                placeholder="YYYY/MM/DD"
+                                            />
+
+                                                
+                                            </div>
+                                    </div>
+
                                 </div>
                                 <div class="card-footer text-right">
                                     <button type="submit" name="submit" class="btn btn-primary px-4 py-2">

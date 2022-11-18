@@ -1,27 +1,28 @@
 <?php
 
+// namespace App\Http\Controllers\Admin;
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
-class AkunController extends Controller
+class PetugasController extends Controller
 {
-    protected $title = 'Data Admin';
+    protected $title = 'Data Petugas';
     public function index()
     {
 
-        $dt = DB::table('users')->where('role', 'Admin')->get();
+        $dt = DB::table('users')->where('role', 'Petugas')->get();
         $i = 1;
         $data = array(
             'title'     => $this->title,
-            'content'   => 'admin/akun/index',
+            'content'   => 'admin/petugas/index',
             'data'      => $dt,
             'no'        => $i
         );
+
+        // dd($data);
 
         return view('layouts.app', $data);
     }
@@ -31,7 +32,7 @@ class AkunController extends Controller
 
         $data = array(
             'title'     => $this->title,
-            'content'   => 'admin/akun/tambah'
+            'content'   => 'admin/petugas/tambah'
         );
 
 
@@ -44,16 +45,19 @@ class AkunController extends Controller
         $namaGambar = time() . '.' . $request->profile->extension();
 
         $request->profile->move(public_path('image'), $namaGambar);
-
+        // dd($request);
         $tes = DB::table('users')->insert([
             'profile'       => $namaGambar,
             'nama'          => $request->nama,
             'username'      => $request->username,
             'password'      => $request->password,
+            'jkl'           => $request->jkl,
+            'alamat'        => $request->alamat,
+            'tgl_lahir'     => $request->tgl_lahir,
             'role'          => $request->role,
         ]);
 
-        return redirect()->route('akun');
+        return redirect()->route('petugas');
     }
 
     public function show($id)
@@ -64,7 +68,7 @@ class AkunController extends Controller
         // dd($dt);
         $data = array(
             'title'     => $this->title,
-            'content'   => 'admin/akun/edit',
+            'content'   => 'admin/petugas/edit',
             'dt'        => $dt
         );
 
@@ -88,6 +92,9 @@ class AkunController extends Controller
                 'nama'          => $request->nama,
                 'username'      => $request->username,
                 'password'      => $request->password,
+                'jkl'           => $request->jkl,
+                'alamat'        => $request->alamat,
+                'tgl_lahir'     => $request->tgl_lahir,
                 'role'          => $request->role,
             ]);
         } else {
@@ -95,18 +102,21 @@ class AkunController extends Controller
                 'nama'          => $request->nama,
                 'username'      => $request->username,
                 'password'      => $request->password,
+                'jkl'           => $request->jkl,
+                'alamat'        => $request->alamat,
+                'tgl_lahir'     => $request->tgl_lahir,
                 'role'          => $request->role,
             ]);
         }
 
 
-        return redirect()->route('akun');
+        return redirect()->route('petugas');
     }
 
     public function destroy($id) {
         // dd($id);
         DB::table('users')->where('id', $id)->delete();
         
-        return redirect()->route('akun');
+        return redirect()->route('petugas');
     }
 }

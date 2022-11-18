@@ -21,6 +21,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="{{ asset('assets/js/stisla.js') }}"></script>
 
+<!-- Bootstrap 5 JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+<!-- Vanilla Datepicker JS -->
+<script src='https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js'></script>
+
  <!-- JS Libraies -->
  <script src="{{ asset('assets/node_modules/cleave.js/dist/cleave.min.js')}}"></script>
  <script src="{{ asset('assets/node_modules/cleave.js/dist/addons/cleave-phone.us.js')}}"></script>
@@ -40,6 +46,7 @@
 <!-- Page Specific JS File -->
 <script src="{{ asset('assets/js/page/index-0.js') }}"></script>
 <script src="{{ asset('assets/js/page/forms-advanced-forms.js')}}"></script>
+<script src="{{ asset('assets/js/page/modules-ion-icons.js')}}"></script>
 
 
 </body>
