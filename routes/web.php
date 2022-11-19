@@ -44,6 +44,17 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
         Route::put('/update', 'PetugasController@update')->name('account_petugas.update');
         Route::delete('delete/{id}', 'PetugasController@destroy')->name('account_petugas.delete');
 
+    });
+     
+    Route::group(['prefix' => '/stok'], function () {
+
+        Route::get('/', 'StokController@index')->name('stok');
+        Route::get('/data', 'StokController@data')->name('stok.tambah');
+        Route::post('/store', 'StokController@store')->name('stok.store');
+        Route::get('/show/{id}', 'StokController@show')->name('stok.show');
+        Route::put('/update', 'StokController@update')->name('stok.update');
+        Route::delete('delete/{id}', 'StokController@destroy')->name('stok.delete');
+
     }); 
     
     Route::group(['prefix' => '/golongan'], function () {

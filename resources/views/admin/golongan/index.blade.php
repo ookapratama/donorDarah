@@ -39,17 +39,15 @@
                                                  <td>
                                                      <img alt="{{ $v->golongan }}"
                                                          src="{{ asset('image/golongan/' . $v->gambar) }}"
-                                                         class="rounded-circle m-3 " width="80" data-toggle="tooltip"
-                                                         title="{{ $v->golongan }}" />
+                                                         class="rounded-circle m-3 " width="80"
+                                                         data-toggle="tooltip" title="{{ $v->golongan }}" />
                                                  </td>
                                                  <td>
                                                      {{ $v->golongan }}
                                                  </td>
-                                                 
+
                                              </tr>
                                          @endforeach
-
-
                              </div>
 
 

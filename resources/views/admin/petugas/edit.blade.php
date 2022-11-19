@@ -79,7 +79,9 @@
                                             <div class="form-group col-md">
                                                 <label>Upload Profil Admin</label>
                                                 <div class="input-group">
-                                                    <input type="file" name="profile" class="form-control" />
+                                                    <input type="file" class="custom-file-input" name="profile" value="{{ $dt->profile }}" id="customFile">
+                                                    <label class="custom-file-label" for="customFile">Choose
+                                                        file</label>
                                                 </div>
 
                                             </div>

@@ -42,8 +42,8 @@
                     <span>Stok Darah</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('akun') }}">Data Stok</a></li>
-                    <li><a class="nav-link" href="{{ route('account_admin.tambah') }}">Tambah Stok</a></li>
+                    <li><a class="nav-link" href="{{ route('stok') }}">Data Stok</a></li>
+                    <li><a class="nav-link" href="{{ route('stok.tambah') }}">Tambah Stok</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->integer('id_golongan');
             $table->string('nama');
-            $table->string('golongan');
-            $table->integer('umur');
+            $table->enum('jkl',['Laki-laki', 'Perempuan']);
             $table->string('alamat');
+            $table->date('tgl_lahir');
             $table->date('tgl_donor');
             $table->timestamps();
         });

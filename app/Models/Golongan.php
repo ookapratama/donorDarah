@@ -12,4 +12,8 @@ class Golongan extends Model
         'gambar',
         'gol'
     ];
+
+    public function stok() {
+        return $this->belongsTo('App\Stok');
+    }
 }

@@ -11,8 +11,14 @@ class Stok extends Model
     protected $fillable = [
         'nama',
         'golongan',
-        'umur',
+        'jkl',
         'alamat',
+        'tgl_lahir',
         'tgl_donor'
     ];
+
+
+    public function golongan() {
+        return $this->hasMany('App\Golongan');
+    }
 }
