@@ -14,7 +14,9 @@ class AkunController extends Controller
     public function index()
     {
 
-        $dt = DB::table('users')->where('role', 'Admin')->get();
+        // $dt = DB::table('users')->where('role', 'Admin')->get();
+        $dt = User::whe('role', 'Admin')->get();
+        dd($dt);
         $i = 1;
         $data = array(
             'title'     => $this->title,
@@ -45,13 +47,9 @@ class AkunController extends Controller
 
         $request->profile->move(public_path('image'), $namaGambar);
 
-        $tes = DB::table('users')->insert([
-            'profile'       => $namaGambar,
-            'nama'          => $request->nama,
-            'username'      => $request->username,
-            'password'      => $request->password,
-            'role'          => $request->role,
-        ]);
+        $data = $request->all();
+        $data['profile'] = $namaGambar;
+        User::create($data);
 
         return redirect()->route('akun');
     }
@@ -96,7 +94,8 @@ class AkunController extends Controller
 
     public function destroy($id) {
         // dd($id);
-        DB::table('users')->where('id', $id)->delete();
+        $find = User::find($id);
+        $find->delete();
         
         return redirect()->route('akun');
     }

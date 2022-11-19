@@ -13,7 +13,8 @@ class PetugasController extends Controller
     public function index()
     {
 
-        $dt = DB::table('users')->where('role', 'Petugas')->get();
+        // $dt = DB::table('users')->where('role', 'Petugas')->get();
+        User:
         $i = 1;
         $data = array(
             'title'     => $this->title,

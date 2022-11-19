@@ -31,8 +31,10 @@ class StokController extends Controller
     public function data()
     {
         $date = Carbon::now()->format('Y-m-d');
+        $gol = Golongan::get();
         $data = array(
             'title'     => $this->title,
+            'golongan'  => $gol,
             'tgl_donor' => $date,
             'content'   => 'admin/stok/tambah'
         );
@@ -68,23 +70,9 @@ class StokController extends Controller
 
     public function update(Request $request)
     {
-
-        // $user = User::findOrFail($id);
-        // dd($request);
-        if ($request->hasFile('profile')) {
-                
-            $find = Stok::find($request->id);
-            $find->update($request->all());
-
-
-        } else {
-
-            $find = Stok::find($request->id);
-            // $old = $request->all();
-            $find->update($request->all());
-            
-        }
-
+        // dd($request->id);
+        $update = Stok::find($request->id)->update($request->all());
+        // $update->update($request->all());
         return redirect()->route('stok');
     }
 

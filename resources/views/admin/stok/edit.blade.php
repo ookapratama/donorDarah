@@ -24,7 +24,7 @@
                                     {{ csrf_field() }}
                                     @method('put')
                                     <div class="card-body">
-                                        <input type="hidden" value="Admin" name="role">
+                                        <input type="hidden" value="{{ $dt->id }}" name="id">
                                         <div class="row">
 
                                             <div class="form-group col-md">
