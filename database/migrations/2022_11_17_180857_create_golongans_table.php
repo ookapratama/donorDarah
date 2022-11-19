@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('golongans', function (Blueprint $table) {
             $table->id();
+            $table->string('gambar');
             $table->enum('golongan', ['A', 'B', 'AB', 'O']);
             $table->timestamps();
         });

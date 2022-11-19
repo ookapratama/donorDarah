@@ -45,6 +45,12 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
         Route::delete('delete/{id}', 'PetugasController@destroy')->name('account_petugas.delete');
 
     }); 
+    
+    Route::group(['prefix' => '/golongan'], function () {
+
+        Route::get('/', 'GolonganController@index')->name('golongan');
+
+    }); 
 
     
 
