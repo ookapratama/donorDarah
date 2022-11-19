@@ -74,31 +74,22 @@ class AkunController extends Controller
     public function update(Request $request)
     {
 
-        // $user = User::findOrFail($id);
-        // dd($user);
-        if ($request->hasFile('profile')) {
+        $old = $request->all();
+        $find = User::find($request->id);
 
+        if ($request->hasFile('profile')) {
 
             $namaGambar = time() . '.' . $request->profile->extension();
 
             $request->profile->move(public_path('image'), $namaGambar);
+            $old['profile'] = $namaGambar; 
 
-            $tes = DB::table('users')->where('id', $request->id)->update([
-                'profile'       => $namaGambar,
-                'nama'          => $request->nama,
-                'username'      => $request->username,
-                'password'      => $request->password,
-                'role'          => $request->role,
-            ]);
         } else {
-            $tes = DB::table('users')->where('id', $request->id)->update([
-                'nama'          => $request->nama,
-                'username'      => $request->username,
-                'password'      => $request->password,
-                'role'          => $request->role,
-            ]);
-        }
 
+            $old['profile'] = $find->profile; 
+
+        }
+        $find->update($old);
 
         return redirect()->route('akun');
     }

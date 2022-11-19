@@ -10,10 +10,7 @@ class Golongan extends Model
     use HasFactory;
     protected $fillable = [
         'gambar',
-        'gol'
+        'golongan'
     ];
 
-    public function stok() {
-        return $this->belongsTo('App\Stok');
-    }
 }

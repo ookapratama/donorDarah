@@ -41,7 +41,7 @@
                                              </th>
                                              <th class="text-center">Nama Pendonor</th>
                                              <th width="5%">Golongan</th>
-                                             <th width="5%">Umur</th>
+                                             <th width="15%">Tanggal Lahir</th>
                                              <th width="20%">Alamat</th>
                                              <th>Tanggal Donor</th>
                                              <th width="15%">Action</th>
@@ -55,10 +55,10 @@
                                                      {{ $v->nama }}
                                                  </td>
                                                  <td>
-                                                     {{ $v->golongan->golongan }}
+                                                     {{ $v->golongan->golongan ?? '' }}
                                                  </td>
                                                  <td>
-                                                     {{ $v->umur }}
+                                                     {{ $v->tgl_lahir }}
                                                  </td>
                                                  <td class="align-middle">
                                                      {{ $v->alamat }}
@@ -67,8 +67,8 @@
                                                      {{ $v->tgl_donor }}
                                                  </td>
                                                  <td>
-                                                     <form action="{{ route('account_admin.delete', $v->id) }}" method="POST">
-                                                        <a href="{{ route('account_admin.show', $v->id) }}"
+                                                     <form action="{{ route('stok.delete', $v->id) }}" method="POST">
+                                                        <a href="{{ route('stok.show', $v->id) }}"
                                                             class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
                                                             title="Edit"><i class="fas fa-pencil-alt"></i>
                                                         </a>

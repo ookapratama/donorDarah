@@ -10,6 +10,7 @@ class Stok extends Model
     use HasFactory;
     protected $fillable = [
         'nama',
+        'id_golongan',
         'golongan',
         'jkl',
         'alamat',
@@ -19,6 +20,6 @@ class Stok extends Model
 
 
     public function golongan() {
-        return $this->hasMany('App\Golongan');
+        return $this->hasOne('App\Models\Golongan', 'id', 'id_golongan');
     }
 }
