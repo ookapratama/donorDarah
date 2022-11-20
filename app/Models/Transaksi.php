@@ -10,7 +10,7 @@ class Transaksi extends Model
     use HasFactory;
     protected $fillable = [
       'nama',
-      'golongan_id',
+      'id_golongan',
       'golongan',
       'alamat',
       'jkl',
@@ -20,7 +20,7 @@ class Transaksi extends Model
     ];
 
     public function golongan() {
-      return $this->hasOne('App\Models\Golongan', 'id');
+      return $this->hasOne('App\Models\Golongan', 'id', 'id_golongan');
 
     }
 

@@ -40,7 +40,7 @@
 
                                                 <div class="input-group">
 
-                                                    <select class="form-control select1" required name="golongan_id">
+                                                    <select class="form-control select1" required name="id_golongan">
                                                         <option>-- Golongan Darah --</option>
                                                         @foreach ($golongan as $gol)
                                                             <option value="{{ $gol->id }}" {{ $dt->golongan_id == $gol->id ? 'Selected' : '' }}>{{ $gol->golongan }}</option>
