@@ -50,6 +50,7 @@ class StokController extends Controller
         $count_stok = $request->id_golongan;
         $sum = Golongan::find($count_stok);
         $sum->increment('stok');
+        // dd($sum);
         
         return redirect()->route('stok');
     }
@@ -77,14 +78,32 @@ class StokController extends Controller
     public function update(Request $request)
     {
         // dd($request->id);
-        $update = Stok::find($request->id)->update($request->all());
+        $count_stok = $request->id_golongan;
+        $sum = Golongan::find($count_stok);
+        
+        $old = Stok::find($request->id);
+        // dd($old);
+        if ($request->id_golongan != $old->id_golongan) {
+            $sum->increment('stok');
+            // dd($sum);
+        }
+        Stok::find($request->id)->update($request->all());
+
+
         // $update->update($request->all());
         return redirect()->route('stok');
     }
 
     public function destroy($id) {
         
+
+
         $delete = Stok::find($id);
+        $find_gol = $delete->id_golongan;
+        $gol = Golongan::find($find_gol);
+        $gol->decrement('stok');
+        // dd($gol);
+        
         $delete->delete();
         
         return redirect()->route('stok');

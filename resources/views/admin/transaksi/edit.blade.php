@@ -5,8 +5,8 @@
                 <h1>{{ $title }}</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{ route('dashboards') }}">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="{{ route('stok') }}">Stok</a></div>
-                    <div class="breadcrumb-item">Tambah Stok</div>
+                    <div class="breadcrumb-item"><a href="{{ route('transaksi') }}">Transaksi</a></div>
+                    <div class="breadcrumb-item">Tambah Transaksi</div>
                 </div>
             </div>
 
@@ -16,11 +16,11 @@
                     <div class="col-10">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Tambah Stok</h4>
+                                <h4>Tambah Transaksi</h4>
                             </div>
                             <div class="card-body">
                                 {{-- form --}}
-                                <form action="{{ route('stok.update') }}" enctype="multipart/form-data" method="POST">
+                                <form action="{{ route('transaksi.update') }}" enctype="multipart/form-data" method="POST">
                                     {{ csrf_field() }}
                                     @method('put')
                                     <div class="card-body">
@@ -40,10 +40,10 @@
 
                                                 <div class="input-group">
 
-                                                    <select class="form-control select1" required name="id_golongan">
+                                                    <select class="form-control select1" required name="golongan_id">
                                                         <option>-- Golongan Darah --</option>
                                                         @foreach ($golongan as $gol)
-                                                            <option value="{{ $gol->id }}" {{ $dt->id_golongan == $gol->id ? 'Selected' : '' }}>{{ $gol->golongan }}</option>
+                                                            <option value="{{ $gol->id }}" {{ $dt->golongan_id == $gol->id ? 'Selected' : '' }}>{{ $gol->golongan }}</option>
                                                         @endforeach
                                                     </select>
 

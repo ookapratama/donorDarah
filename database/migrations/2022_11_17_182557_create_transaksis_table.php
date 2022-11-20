@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->integer('stok_id');
+            $table->integer('golongan_id');
             $table->string('nama');
-            $table->date('tgl_transaksi');
+            $table->string('alamat');
+            $table->enum('jkl', ['Laki-laki', 'Perempuan']);
+            $table->date('tgl_lahir');
             $table->date('tgl_keluar');
-            $table->enum('status', ['Masuk', 'Keluar']);
+            $table->enum('status', ['Keluar']);
             $table->timestamps();
         });
     }

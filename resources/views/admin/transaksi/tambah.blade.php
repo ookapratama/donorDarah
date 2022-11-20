@@ -5,8 +5,8 @@
                 <h1>{{ $title }}</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{ route('dashboards') }}">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="{{ route('stok') }}">Stok</a></div>
-                    <div class="breadcrumb-item">Tambah Stok</div>
+                    <div class="breadcrumb-item"><a href="{{ route('transaksi') }}">Transaksi</a></div>
+                    <div class="breadcrumb-item">Tambah Transaksi</div>
                 </div>
             </div>
 
@@ -20,7 +20,7 @@
                             </div>
                             <div class="card-body">
                                 {{-- form --}}
-                                <form action="{{ route('stok.store') }}" enctype="multipart/form-data"
+                                <form action="{{ route('transaksi.store') }}" enctype="multipart/form-data"
                                     method="POST">
                                     {{ csrf_field() }}
                                     <div class="card-body">
@@ -40,7 +40,7 @@
 
                                                 <div class="input-group">
 
-                                                    <select class="form-control select1" required name="id_golongan">
+                                                    <select class="form-control select1" required name="golongan_id">
                                                         <option>-- Golongan Darah --</option>
                                                         @foreach ($golongan as $gol)
                                                             <option value="{{ $gol->id }}">{{ $gol->golongan }}
@@ -86,7 +86,7 @@
 
                                         </div>
 
-                                        <input type="hidden" name="tgl_donor" value="{{ $tgl_donor }}">
+                                        <input type="hidden" name="tgl_keluar" value="{{ $tgl_keluar }}">
                                     </div>
                                     <div class="card-footer text-right">
                                         <button type="submit" name="submit" class="btn btn-primary px-4 py-2">

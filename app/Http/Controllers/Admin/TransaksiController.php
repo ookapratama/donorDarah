@@ -34,7 +34,7 @@ class TransaksiController extends Controller
         $data = array(
             'title'     => $this->title,
             'golongan'  => $gol,
-            'tgl_donor' => $date,
+            'tgl_keluar' => $date,
             'content'   => 'admin/transaksi/tambah'
         );
 
@@ -42,7 +42,8 @@ class TransaksiController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
+        // dd($request);
         Transaksi::create($request->all());
         return redirect()->route('transaksi');
     }
@@ -69,8 +70,9 @@ class TransaksiController extends Controller
 
     public function update(Request $request)
     {
-        // dd($request->id);
-        $update = Transaksi::find($request->id)->update($request->all());
+        $find = $request->id;
+        // dd($find);
+        $update = Transaksi::find($find)->update($request->all());
         // $update->update($request->all());
         return redirect()->route('transaksi');
     }

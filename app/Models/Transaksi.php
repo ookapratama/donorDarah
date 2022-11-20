@@ -10,10 +10,18 @@ class Transaksi extends Model
     use HasFactory;
     protected $fillable = [
       'nama',
-      'stok_id',
+      'golongan_id',
       'golongan',
-      'tgl_transaksi',
+      'alamat',
+      'jkl',
+      'tgl_lahir',
       'tgl_keluar',
       'status'
     ];
+
+    public function golongan() {
+      return $this->hasOne('App\Models\Golongan', 'id');
+
+    }
+
 }

@@ -39,11 +39,13 @@
                                              <th width="5%" class="text-center">
                                                  No
                                              </th>
-                                             <th class="text-center">Nama Pendonor</th>
+                                             <th class="text-center" width="20%">Nama</th>
                                              <th width="5%">Golongan</th>
-                                             <th width="15%">Tanggal Lahir</th>
                                              <th width="20%">Alamat</th>
-                                             <th>Tanggal Donor</th>
+                                             <th width="10%">Tanggal Lahir</th>
+                                             <th >Gender</th>
+                                             <th>Status</th>
+                                             <th>Tanggal Keluar</th>
                                              <th width="15%">Action</th>
                                          </tr>
                                      </thead>
@@ -58,24 +60,31 @@
                                                      {{ $v->golongan->golongan ?? '' }}
                                                  </td>
                                                  <td>
-                                                     {{ $v->tgl_lahir }}
-                                                 </td>
-                                                 <td class="align-middle">
                                                      {{ $v->alamat }}
                                                  </td>
-                                                 <td class="align-middle">
-                                                     {{ $v->tgl_donor }}
+                                                 <td>
+                                                     {{ $v->tgl_lahir }}
                                                  </td>
                                                  <td>
-                                                     <form action="{{ route('stok.delete', $v->id) }}" method="POST">
-                                                        <a href="{{ route('stok.show', $v->id) }}"
-                                                            class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
-                                                            title="Edit"><i class="fas fa-pencil-alt"></i>
-                                                        </a>
-                                                        {{ method_field('delete') }}
-                                                        {{ csrf_field() }}
-                                                        <button 
-                                                             class="btn btn-danger btn-action" data-toggle="tooltip"
+                                                     {{ $v->jkl }}
+                                                 </td>
+                                                 <td class="align-middle">
+                                                     {{ $v->status }}
+                                                 </td>
+                                                 <td class="align-middle">
+                                                     {{ $v->tgl_keluar }}
+                                                 </td>
+                                                 <td>
+                                                     <form action="{{ route('transaksi.delete', $v->id) }}"
+                                                         method="POST">
+                                                         <a href="{{ route('transaksi.show', $v->id) }}"
+                                                             class="btn btn-primary btn-action mr-1"
+                                                             data-toggle="tooltip" title="Edit"><i
+                                                                 class="fas fa-pencil-alt"></i>
+                                                         </a>
+                                                         {{ method_field('delete') }}
+                                                         {{ csrf_field() }}
+                                                         <button class="btn btn-danger btn-action" data-toggle="tooltip"
                                                              title="Delete">
                                                              <i class="fas fa-trash"></i>
                                                          </button>
