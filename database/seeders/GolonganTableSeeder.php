@@ -15,29 +15,33 @@ class GolonganTableSeeder extends Seeder
      */
     public function run()
     {
-        $gol  = 
-        [
+        $gol  =
             [
-                'golongan'      => 'A',
-                'gambar'         => 'A.png',
-                'created_at'    => new \DateTime
-            ],
-            [
-                'golongan'      => 'B',
-                'gambar'         => 'B.png',
-                'created_at'    => new \DateTime
-            ],
-            [
-                'golongan'      => 'AB',
-                'gambar'         => 'AB.png',
-                'created_at'    => new \DateTime
-            ],
-            [
-                'golongan'      => 'O',
-                'gambar'         => 'O.png',
-                'created_at'    => new \DateTime
-            ],
-        ];
+                [
+                    'golongan'      => 'A',
+                    'gambar'        => 'A.png',
+                    'stok'          => 0,
+                    'created_at'    => new \DateTime
+                ],
+                [
+                    'golongan'      => 'B',
+                    'gambar'        => 'B.png',
+                    'stok'          => 0,
+                    'created_at'    => new \DateTime
+                ],
+                [
+                    'golongan'      => 'AB',
+                    'gambar'        => 'AB.png',
+                    'stok'          => 0,
+                    'created_at'    => new \DateTime
+                ],
+                [
+                    'golongan'      => 'O',
+                    'gambar'        => 'O.png',
+                    'stok'          => 0,
+                    'created_at'    => new \DateTime
+                ],
+            ];
 
         \DB::table('golongans')->insert($gol);
     }

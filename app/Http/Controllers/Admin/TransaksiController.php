@@ -4,23 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Golongan;
-use App\Models\Stok;
+use App\Models\Transaksi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class StokController extends Controller
+class TransaksiController extends Controller
 {
-    protected $title = 'Data Stok Darah';
+    protected $title = 'Data Transaksi';
     public function index()
     {
 
-        $dt = Stok::get();
+        $dt = Transaksi::get();
         
         $i = 1;
         $data = array(
             'title'     => $this->title,
-            'content'   => 'admin/stok/index',
+            'content'   => 'admin/transaksi/index',
             'data'      => $dt,
             'no'        => $i
         );
@@ -36,7 +35,7 @@ class StokController extends Controller
             'title'     => $this->title,
             'golongan'  => $gol,
             'tgl_donor' => $date,
-            'content'   => 'admin/stok/tambah'
+            'content'   => 'admin/transaksi/tambah'
         );
 
         return view('layouts.app', $data);
@@ -44,27 +43,21 @@ class StokController extends Controller
 
     public function store(Request $request)
     {
-        // $sum = 0;
-        Stok::create($request->all());
-        
-        $count_stok = $request->id_golongan;
-        $sum = Golongan::find($count_stok);
-        $sum->increment('stok');
-        
-        return redirect()->route('stok');
+        Transaksi::create($request->all());
+        return redirect()->route('transaksi');
     }
 
     public function show($id)
     {
 
-        $dt = Stok::find($id);    
-        $jkl = Stok::get();
+        $dt = Transaksi::find($id);    
+        $jkl = Transaksi::get();
         $gol = Golongan::get();
         $date = Carbon::now()->format('Y-m-d');
 
         $data = array(
             'title'     => $this->title,
-            'content'   => 'admin/stok/edit',
+            'content'   => 'admin/transaksi/edit',
             'dt'        => $dt,
             'jkl'       => $jkl,
             'tgl_donor' => $date,
@@ -77,16 +70,16 @@ class StokController extends Controller
     public function update(Request $request)
     {
         // dd($request->id);
-        $update = Stok::find($request->id)->update($request->all());
+        $update = Transaksi::find($request->id)->update($request->all());
         // $update->update($request->all());
-        return redirect()->route('stok');
+        return redirect()->route('transaksi');
     }
 
     public function destroy($id) {
         
-        $delete = Stok::find($id);
+        $delete = Transaksi::find($id);
         $delete->delete();
         
-        return redirect()->route('stok');
+        return redirect()->route('transaksi');
     }
 }

@@ -10,7 +10,8 @@ class Golongan extends Model
     use HasFactory;
     protected $fillable = [
         'gambar',
-        'golongan'
+        'golongan',
+        'stok'
     ];
 
 }

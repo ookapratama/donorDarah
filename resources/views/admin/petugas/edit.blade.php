@@ -92,7 +92,7 @@
                                                     <image class="img-thumbnail" name="profile"
                                                         src="{{ asset('image/' . $dt->profile) }}" width="80" />
                                                 </div>
-    
+
                                             </div>
 
                                             <div class="form-group col-md-5">
@@ -143,11 +143,8 @@
                                                 <label>Tanggal Lahir</label>
 
                                                 <div class="input-group">
-
                                                     <input name="tgl_lahir" class="form-control datepicker"
                                                         placeholder="YYYY/MM/DD" value="{{ $dt->tgl_lahir }}" />
-
-
                                                 </div>
                                             </div>
 

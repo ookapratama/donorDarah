@@ -56,6 +56,17 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
         Route::delete('delete/{id}', 'StokController@destroy')->name('stok.delete');
 
     }); 
+
+    Route::group(['prefix' => '/transaksi'], function () {
+
+        Route::get('/', 'TransaksiController@index')->name('transaksi');
+        Route::get('/data', 'TransaksiController@data')->name('transaksi.tambah');
+        Route::post('/store', 'TransaksiController@store')->name('transaksi.store');
+        Route::get('/show/{id}', 'TransaksiController@show')->name('transaksi.show');
+        Route::put('/update', 'TransaksiController@update')->name('transaksi.update');
+        Route::delete('delete/{id}', 'TransaksiController@destroy')->name('transaksi.delete');
+
+    }); 
     
     Route::group(['prefix' => '/golongan'], function () {
 

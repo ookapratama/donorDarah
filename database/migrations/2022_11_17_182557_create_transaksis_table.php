@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_stok');
+            $table->integer('stok_id');
+            $table->string('nama');
             $table->date('tgl_transaksi');
             $table->date('tgl_keluar');
             $table->enum('status', ['Masuk', 'Keluar']);

@@ -30,6 +30,7 @@
                                              </th>
                                              <th class="text-center">Gambar</th>
                                              <th>Jenis Golongan</th>
+                                             <th>Stok Darah</th>
                                          </tr>
                                      </thead>
                                      <tbody>
@@ -44,6 +45,9 @@
                                                  </td>
                                                  <td>
                                                      {{ $v->golongan }}
+                                                 </td>
+                                                 <td>
+                                                     {{ $v->stok }}
                                                  </td>
 
                                              </tr>
