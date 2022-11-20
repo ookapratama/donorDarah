@@ -15,8 +15,8 @@ class AkunController extends Controller
     {
 
         // $dt = DB::table('users')->where('role', 'Admin')->get();
-        $dt = User::whe('role', 'Admin')->get();
-        dd($dt);
+        $dt = User::where('role', 'Admin')->get();
+        // dd($dt);
         $i = 1;
         $data = array(
             'title'     => $this->title,
@@ -49,6 +49,7 @@ class AkunController extends Controller
 
         $data = $request->all();
         $data['profile'] = $namaGambar;
+        // dd($data);
         User::create($data);
 
         return redirect()->route('akun');
@@ -57,7 +58,7 @@ class AkunController extends Controller
     public function show($id)
     {
 
-        $dt = DB::table('users')->where('id', $id)->first();
+        $dt = User::find($id);
 
         // dd($dt);
         $data = array(

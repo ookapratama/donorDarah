@@ -79,11 +79,20 @@
                                             <div class="form-group col-md">
                                                 <label>Upload Profil Admin</label>
                                                 <div class="input-group">
-                                                    <input type="file" class="custom-file-input" name="profile" value="{{ $dt->profile }}" id="customFile">
+                                                    <input type="file" class="custom-file-input" name="profile"
+                                                        value="{{ $dt->profile }}" id="customFile">
                                                     <label class="custom-file-label" for="customFile">Choose
                                                         file</label>
                                                 </div>
 
+                                            </div>
+
+                                            <div class="form-group col-md-3">
+                                                <div class="input-group">
+                                                    <image class="img-thumbnail" name="profile"
+                                                        src="{{ asset('image/' . $dt->profile) }}" width="80" />
+                                                </div>
+    
                                             </div>
 
                                             <div class="form-group col-md-5">
@@ -92,10 +101,15 @@
 
                                                 <div class="input-group">
 
-                                                    <select class="form-control select1" name="jkl">
-                                                        <option>-- Silahkan Pilih Gender --</option>
-                                                        <option value="Laki-laki">Laki-laki</option>
-                                                        <option value="Perempuan">Perempuan</option>
+                                                    <select class="form-control select1" required name="jkl">
+                                                        <option>-- Pilih Gender --</option>
+                                                        <option value="Laki-laki"
+                                                            {{ $dt->jkl == 'Laki-laki' ? 'Selected' : '' }}>Laki-laki
+                                                        </option>
+                                                        <option value="Perempuan"
+                                                            {{ $dt->jkl == 'Perempuan' ? 'Selected' : '' }}>Perempuan
+                                                        </option>
+
                                                     </select>
 
 
