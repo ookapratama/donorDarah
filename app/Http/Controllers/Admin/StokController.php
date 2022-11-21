@@ -77,17 +77,21 @@ class StokController extends Controller
 
     public function update(Request $request)
     {
-        // dd($request->id);
-        $count_stok = $request->id_golongan;
-        $sum = Golongan::find($count_stok);
+        $id = $request->id_golongan;
+        $sum = Golongan::find($id);
         
-        $old = Stok::find($request->id);
-        // dd($old);
-        if ($request->id_golongan != $old->id_golongan) {
+        $old_stok = Stok::find($request->id);
+        // dd($sum);
+        
+        if ($request->id_golongan != $old_stok->id_golongan) {
+            $d = Golongan::find($old_stok->id_golongan)->decrement('stok');
             $sum->increment('stok');
-            // dd($sum);
         }
-        Stok::find($request->id)->update($request->all());
+        else {
+            $sum->stok = $sum->stok;
+        }
+
+        $old_stok->update($request->all());
 
 
         // $update->update($request->all());
