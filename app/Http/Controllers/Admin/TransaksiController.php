@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Golongan;
+use App\Models\Stok;
 use App\Models\Transaksi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -15,8 +16,8 @@ class TransaksiController extends Controller
     {
 
         $dt = Transaksi::get();
-        
         $i = 1;
+
         $data = array(
             'title'     => $this->title,
             'content'   => 'admin/transaksi/index',
@@ -30,7 +31,9 @@ class TransaksiController extends Controller
     public function data()
     {
         $date = Carbon::now()->format('Y-m-d');
-        $gol = Golongan::get();
+        $gol = Golongan::where('stok', '>', 0)->get();
+        
+        // dd($gol);
         $data = array(
             'title'     => $this->title,
             'golongan'  => $gol,
@@ -44,6 +47,19 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {   
         // dd($request);
+        $id_gol = $request->id_golongan;
+        $id_stok = $request->id;
+        $gol = Golongan::find($id_gol);
+        $stok = Stok::find($id_stok);
+
+        if ($stok) {
+            $stok->status = "Keluar";
+            $stok->save();
+        }
+
+        // dd($gol->id);
+        $gol->decrement('stok');
+
         Transaksi::create($request->all());
         return redirect()->route('transaksi');
     }
@@ -71,6 +87,13 @@ class TransaksiController extends Controller
     public function update(Request $request)
     {
         $find = $request->id;
+        $stok = Stok::find($request->id_golongan);
+
+        if ($stok) {
+            $stok->status = "Keluar";
+            $stok->save();
+        }
+
         // dd($find);
         $update = Transaksi::find($find)->update($request->all());
         // $update->update($request->all());

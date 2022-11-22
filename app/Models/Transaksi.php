@@ -11,6 +11,7 @@ class Transaksi extends Model
     protected $fillable = [
       'nama',
       'id_golongan',
+      'id_stok',
       'golongan',
       'alamat',
       'jkl',
@@ -21,7 +22,10 @@ class Transaksi extends Model
 
     public function golongan() {
       return $this->hasOne('App\Models\Golongan', 'id', 'id_golongan');
+    }
 
+    public function stok() {
+      return $this->hasOne('App\Models\Stok', 'id', 'id_stok');
     }
 
 }

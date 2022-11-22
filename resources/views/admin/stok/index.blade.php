@@ -39,11 +39,9 @@
                                              <th width="5%" class="text-center">
                                                  No
                                              </th>
-                                             <th class="text-center">Nama Pendonor</th>
                                              <th width="5%">Golongan</th>
-                                             <th width="15%">Tanggal Lahir</th>
-                                             <th width="20%">Alamat</th>
-                                             <th>Tanggal Donor</th>
+                                             <th>Tanggal Masuk</th>
+                                             <th>Jumlah</th>
                                              <th width="15%">Action</th>
                                          </tr>
                                      </thead>
@@ -52,19 +50,13 @@
                                              <tr>
                                                  <td>{{ $no++ }}</td>
                                                  <td>
-                                                     {{ $v->nama }}
-                                                 </td>
-                                                 <td>
                                                      {{ $v->golongan->golongan ?? '' }}
                                                  </td>
-                                                 <td>
-                                                     {{ $v->tgl_lahir }}
-                                                 </td>
                                                  <td class="align-middle">
-                                                     {{ $v->alamat }}
+                                                     {{ $v->tgl_masuk }}
                                                  </td>
-                                                 <td class="align-middle">
-                                                     {{ $v->tgl_donor }}
+                                                 <td class="align-middle ">
+                                                     {{ $v->jumlah }}
                                                  </td>
                                                  <td>
                                                      <form action="{{ route('stok.delete', $v->id) }}" method="POST">

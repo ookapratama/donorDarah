@@ -27,7 +27,7 @@
                                         <input type="hidden" value="{{ $dt->id }}" name="id">
                                         <div class="row">
 
-                                            <div class="form-group col-md">
+                                            <div class="form-group col-md-7">
                                                 <label>Nama Lengkap</label>
                                                 <input type="text" name="nama" class="form-control" required=""
                                                     value="{{ $dt->nama }}" />
@@ -43,13 +43,21 @@
                                                     <select class="form-control select1" required name="id_golongan">
                                                         <option>-- Golongan Darah --</option>
                                                         @foreach ($golongan as $gol)
-                                                            <option value="{{ $gol->id }}" {{ $dt->id_golongan == $gol->id ? 'Selected' : '' }}>{{ $gol->golongan }}</option>
+                                                            <option value="{{ $gol->id }}"
+                                                                {{ $dt->id_golongan == $gol->id ? 'Selected' : '' }}>
+                                                                {{ $gol->golongan }}</option>
                                                         @endforeach
                                                     </select>
 
                                                 </div>
 
                                             </div>
+
+                                            <div class="col-md">
+                                                <label for=""> Jumlah Darah</label>
+                                                <input type="number" class="form-control"> 
+                                            </div>
+
                                         </div>
                                         <div class="row">
 
@@ -67,9 +75,13 @@
 
                                                     <select class="form-control select1" required name="jkl">
                                                         <option>-- Pilih Gender --</option>
-                                                            <option value="Laki-laki" {{ $dt->jkl == 'Laki-laki' ?  'Selected' : '' }} >Laki-laki</option>
-                                                            <option value="Perempuan" {{ $dt->jkl == 'Perempuan' ? 'Selected' : '' }} >Perempuan</option>
-                                                            
+                                                        <option value="Laki-laki"
+                                                            {{ $dt->jkl == 'Laki-laki' ? 'Selected' : '' }}>Laki-laki
+                                                        </option>
+                                                        <option value="Perempuan"
+                                                            {{ $dt->jkl == 'Perempuan' ? 'Selected' : '' }}>Perempuan
+                                                        </option>
+
                                                     </select>
 
                                                 </div>

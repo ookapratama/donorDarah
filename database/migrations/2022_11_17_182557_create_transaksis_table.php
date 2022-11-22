@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->integer('id_golongan');
+            $table->integer('id_stok');
             $table->string('nama');
             $table->string('alamat');
             $table->enum('jkl', ['Laki-laki', 'Perempuan']);

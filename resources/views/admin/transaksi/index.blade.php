@@ -44,7 +44,6 @@
                                              <th width="20%">Alamat</th>
                                              <th width="10%">Tanggal Lahir</th>
                                              <th >Gender</th>
-                                             <th>Status</th>
                                              <th>Tanggal Keluar</th>
                                              <th width="15%">Action</th>
                                          </tr>
@@ -68,9 +67,7 @@
                                                  <td>
                                                      {{ $v->jkl }}
                                                  </td>
-                                                 <td class="align-middle">
-                                                     {{ $v->status }}
-                                                 </td>
+                                                 
                                                  <td class="align-middle">
                                                      {{ $v->tgl_keluar }}
                                                  </td>

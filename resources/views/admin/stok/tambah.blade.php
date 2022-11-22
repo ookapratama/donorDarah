@@ -20,22 +20,12 @@
                             </div>
                             <div class="card-body">
                                 {{-- form --}}
-                                <form action="{{ route('stok.store') }}" enctype="multipart/form-data"
-                                    method="POST">
+                                <form action="{{ route('stok.store') }}" enctype="multipart/form-data" method="POST">
                                     {{ csrf_field() }}
                                     <div class="card-body">
-                                        <input type="hidden" value="Admin" name="role">
                                         <div class="row">
 
-                                            <div class="form-group col-md">
-                                                <label>Nama Lengkap</label>
-                                                <input type="text" name="nama" class="form-control"
-                                                    required="" />
-                                                <div class="invalid-feedback">
-                                                    Masukkan Nama Lengkap
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-3">
+                                            <div class="form-group col-md-6">
                                                 <label>Golongan Darah</label>
 
                                                 <div class="input-group">
@@ -51,42 +41,17 @@
                                                 </div>
 
                                             </div>
+                                            <div class="col-md-6">
+                                                <label> Jumlah Darah</label>
+                                                <input type="number" name="jumlah" class="form-control"> 
+                                            </div>
                                         </div>
                                         <div class="row">
-
-
-                                            <div class="form-group col-md-3">
-                                                <label>Tanggal Lahir</label>
-                                                <input type="date" class="form-control" name="tgl_lahir" required>
-                                            </div>
-
-                                            <div class="form-group col-md-3">
-                                                <label>Gender</label>
-
-                                                <div class="input-group">
-
-                                                    <select class="form-control select1" required name="jkl">
-                                                        <option>-- Pilih Gender --</option>
-                                                        <option value="Laki-laki">Laki-laki</option>
-                                                        <option value="Perempuan">Perempuan</option>
-                                                    </select>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group col-md">
-                                                <label>Alamat</label>
-                                                <input type="text" name="alamat" class="form-control"
-                                                    required="" />
-                                                <div class="invalid-feedback">
-                                                    Masukkan Alamat Lengkap
-                                                </div>
-                                            </div>
+                                            
 
                                         </div>
 
-                                        <input type="hidden" name="tgl_donor" value="{{ $tgl_donor }}">
+                                        <input type="hidden" name="tgl_masuk" value="{{ $tgl_masuk }}">
                                     </div>
                                     <div class="card-footer text-right">
                                         <button type="submit" name="submit" class="btn btn-primary px-4 py-2">

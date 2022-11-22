@@ -30,12 +30,12 @@ class StokController extends Controller
 
     public function data()
     {
-        $date = Carbon::now()->format('Y-m-d');
+        $date = Carbon::now()->format('Y-m-d H:i:s');
         $gol = Golongan::get();
         $data = array(
             'title'     => $this->title,
             'golongan'  => $gol,
-            'tgl_donor' => $date,
+            'tgl_masuk' => $date,
             'content'   => 'admin/stok/tambah'
         );
 
@@ -48,9 +48,15 @@ class StokController extends Controller
         Stok::create($request->all());
         
         $count_stok = $request->id_golongan;
-        $sum = Golongan::find($count_stok);
-        $sum->increment('stok');
-        // dd($sum);
+        $stok = Golongan::find($count_stok);
+        if ($stok['stok'] > 0) {
+            $stok['stok'] += $request->jumlah;            
+        }
+        else {
+            $stok['stok'] = $request->jumlah;
+        }
+        $stok->update();
+        // dd($stok['stok']);
         
         return redirect()->route('stok');
     }
@@ -68,7 +74,7 @@ class StokController extends Controller
             'content'   => 'admin/stok/edit',
             'dt'        => $dt,
             'jkl'       => $jkl,
-            'tgl_donor' => $date,
+            'tgl_masuk' => $date,
             'golongan'  => $gol
         );
 

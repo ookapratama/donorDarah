@@ -24,7 +24,6 @@
                                     method="POST">
                                     {{ csrf_field() }}
                                     <div class="card-body">
-                                        <input type="hidden" value="Admin" name="role">
                                         <div class="row">
 
                                             <div class="form-group col-md">

@@ -16,11 +16,8 @@ return new class extends Migration
         Schema::create('stoks', function (Blueprint $table) {
             $table->id();
             $table->integer('id_golongan');
-            $table->string('nama');
-            $table->enum('jkl',['Laki-laki', 'Perempuan']);
-            $table->string('alamat');
-            $table->date('tgl_lahir');
-            $table->date('tgl_donor');
+            $table->integer('jumlah');
+            $table->date('tgl_masuk');
             $table->timestamps();
         });
     }
