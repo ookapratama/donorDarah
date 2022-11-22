@@ -65,7 +65,8 @@ class StokController extends Controller
     {
 
         $dt = Stok::find($id);    
-        $jkl = Stok::get();
+        $stok = Stok::get();
+        $stok_gol = Golongan::find($id);
         $gol = Golongan::get();
         $date = Carbon::now()->format('Y-m-d');
 
@@ -73,7 +74,8 @@ class StokController extends Controller
             'title'     => $this->title,
             'content'   => 'admin/stok/edit',
             'dt'        => $dt,
-            'jkl'       => $jkl,
+            'stok'      => $stok,
+            'stok_gol'  => $stok_gol,
             'tgl_masuk' => $date,
             'golongan'  => $gol
         );
@@ -87,16 +89,23 @@ class StokController extends Controller
         $sum = Golongan::find($id);
         
         $old_stok = Stok::find($request->id);
-        // dd($sum);
         
-        if ($request->id_golongan != $old_stok->id_golongan) {
-            $d = Golongan::find($old_stok->id_golongan)->decrement('stok');
-            $sum->increment('stok');
+        $count_stok = $request->id_golongan;
+        $stok = Golongan::find($count_stok);
+
+        // dd($stok['stok'] - ($old_stok->jumlah - $request->jumlah));
+
+        if ($request->jumlah > $old_stok->jumlah) {
+            $stok['stok'] = ($request->jumlah - $old_stok->jumlah) + $stok['stok'];
+            // dd($stok['stok']);            
         }
         else {
-            $sum->stok = $sum->stok;
+            // $old_stok->jumlah = $request->jumlah;
+            $stok['stok'] = $stok['stok'] - ($old_stok->jumlah - $request->jumlah);
+            // dd($stok['stok'] - ($old_stok->jumlah - $request->jumlah));
         }
 
+        $stok->update($request->all());
         $old_stok->update($request->all());
 
 
@@ -111,9 +120,9 @@ class StokController extends Controller
         $delete = Stok::find($id);
         $find_gol = $delete->id_golongan;
         $gol = Golongan::find($find_gol);
-        $gol->decrement('stok');
-        // dd($gol);
-        
+        $gol['jumlah'] = $gol->jumlah - ($gol->jumlah - $delete->jumlah);
+        // dd($gol['jumlah']);
+        $gol->update();
         $delete->delete();
         
         return redirect()->route('stok');
