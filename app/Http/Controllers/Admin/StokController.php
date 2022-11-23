@@ -120,9 +120,13 @@ class StokController extends Controller
         $delete = Stok::find($id);
         $find_gol = $delete->id_golongan;
         $gol = Golongan::find($find_gol);
-        $gol['jumlah'] = $gol->jumlah - ($gol->jumlah - $delete->jumlah);
+        $gol['stok'] = $gol->jumlah - ($gol->jumlah - $delete->jumlah);
+        
         // dd($gol['jumlah']);
-        $gol->update();
+
+        $gol->update([
+            'stok'      => $gol['stok']
+        ]);
         $delete->delete();
         
         return redirect()->route('stok');
