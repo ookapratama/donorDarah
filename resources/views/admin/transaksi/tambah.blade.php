@@ -84,7 +84,7 @@
                                             </div>
 
                                         </div>
-
+                                        <input type="hidden" name="status" value="Keluar">
                                         <input type="hidden" name="tgl_keluar" value="{{ $tgl_keluar }}">
                                     </div>
                                     <div class="card-footer text-right">

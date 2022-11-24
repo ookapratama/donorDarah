@@ -6,7 +6,7 @@
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{ route('dashboards') }}">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="{{ route('transaksi') }}">Transaksi</a></div>
-                    <div class="breadcrumb-item">Tambah Transaksi</div>
+                    <div class="breadcrumb-item">Edit Transaksi</div>
                 </div>
             </div>
 
@@ -16,7 +16,7 @@
                     <div class="col-10">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Tambah Transaksi</h4>
+                                <h4>Edit Transaksi</h4>
                             </div>
                             <div class="card-body">
                                 {{-- form --}}
@@ -39,11 +39,13 @@
                                                 <label>Golongan Darah</label>
 
                                                 <div class="input-group">
-
+                                                    {{-- {{ $golongan }} --}}
                                                     <select class="form-control select1" required name="id_golongan">
                                                         <option>-- Golongan Darah --</option>
                                                         @foreach ($golongan as $gol)
-                                                            <option value="{{ $gol->id }}" {{ $dt->golongan_id == $gol->id ? 'Selected' : '' }}>{{ $gol->golongan }}</option>
+                                                            <option value="{{ $gol->id }}" {{ $dt->id_golongan == $gol->id ? 'Selected' : '' }}>
+                                                                {{ $gol->golongan }}
+                                                            </option>
                                                         @endforeach
                                                     </select>
 
@@ -87,7 +89,7 @@
 
                                         </div>
 
-                                        <input type="hidden" name="tgl_donor" value="{{ $tgl_donor }}">
+                                        <input type="hidden" name="tgl_keluar" value="{{ $tgl_keluar }}">
                                     </div>
                                     <div class="card-footer text-right">
                                         <button type="submit" name="submit" class="btn btn-primary px-4 py-2">

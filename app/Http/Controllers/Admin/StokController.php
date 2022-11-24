@@ -125,7 +125,7 @@ class StokController extends Controller
         // dd($gol['jumlah']);
 
         $gol->update([
-            'stok'      => $gol['stok']
+            'stok'  => $gol['stok']
         ]);
         $delete->delete();
         

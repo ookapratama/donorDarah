@@ -45,6 +45,7 @@
                                              <th width="10%">Tanggal Lahir</th>
                                              <th >Gender</th>
                                              <th>Tanggal Keluar</th>
+                                             <th>Status</th>
                                              <th width="15%">Action</th>
                                          </tr>
                                      </thead>
@@ -70,6 +71,9 @@
                                                  
                                                  <td class="align-middle">
                                                      {{ $v->tgl_keluar }}
+                                                 </td>
+                                                 <td class="align-middle text-success">
+                                                     {{ $v->status }}
                                                  </td>
                                                  <td>
                                                      <form action="{{ route('transaksi.delete', $v->id) }}"

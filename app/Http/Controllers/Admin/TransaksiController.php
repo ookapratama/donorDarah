@@ -48,16 +48,9 @@ class TransaksiController extends Controller
     {   
         // dd($request);
         $id_gol = $request->id_golongan;
-        $id_stok = $request->id;
         $gol = Golongan::find($id_gol);
-        $stok = Stok::find($id_stok);
 
-        if ($stok) {
-            $stok->status = "Keluar";
-            $stok->save();
-        }
 
-        // dd($gol->id);
         $gol->decrement('stok');
 
         Transaksi::create($request->all());
@@ -71,15 +64,16 @@ class TransaksiController extends Controller
         $jkl = Transaksi::get();
         $gol = Golongan::get();
         $date = Carbon::now()->format('Y-m-d');
-
+        // dd($gol->id);
         $data = array(
             'title'     => $this->title,
             'content'   => 'admin/transaksi/edit',
             'dt'        => $dt,
             'jkl'       => $jkl,
-            'tgl_donor' => $date,
+            'tgl_keluar' => $date,
             'golongan'  => $gol
         );
+        // dd($data['golongan']);
 
         return view('layouts.app', $data);
     }
@@ -87,15 +81,22 @@ class TransaksiController extends Controller
     public function update(Request $request)
     {
         $find = $request->id;
-        $stok = Stok::find($request->id_golongan);
+        $gol  = Golongan::find($find);
+        
+        $old_id = $request->id_golongan;
+        $old_gol = Golongan::find($old_id);
+        
+        $old_gol->increment('stok');
+        $gol->decrement('stok');
+        dd($gol['stok']);
 
-        if ($stok) {
-            $stok->status = "Keluar";
-            $stok->save();
-        }
+
+        // select data dari golongan dlu
+        // jika berubah golongan nya, increment stok lama
+        // decrement ke stok yang baru  
 
         // dd($find);
-        $update = Transaksi::find($find)->update($request->all());
+        Transaksi::find($find)->update($request->all());
         // $update->update($request->all());
         return redirect()->route('transaksi');
     }
