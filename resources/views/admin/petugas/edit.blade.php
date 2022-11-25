@@ -19,6 +19,20 @@
                                 <h4>Tambah Akun Petugas</h4>
                             </div>
                             <div class="card-body">
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger alert-dismissible show fade">
+                                        <div class="alert-body">
+                                            <button class="close" data-dismiss="alert">
+                                                <span>&times;</span>
+                                            </button>
+                                            Mohon diperiksa kembali form anda.
+                                        </div>
+                                    </div>
+                                    @foreach ($errors->all() as $v)
+                                        <li class="list-group-item list-group-item-danger">{{ $v }}</li>
+                                    @endforeach
+                                @endif
                                 {{-- form --}}
                                 <form action="{{ route('account_petugas.update') }}" enctype="multipart/form-data"
                                     method="POST" class="needs-validation" novalidate="">

@@ -44,6 +44,12 @@ class PetugasController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nama'      => 'required|max:10|min:3',
+            'username'  => 'required|max:20|min:5',
+            'password'  => 'required|max:12|min:5',
+            'profile'   => 'required|mimes:jpg,png,jpeg|max:1024|image'
+        ]);
 
         $namaGambar = time() . '.' . $request->profile->extension();
 
@@ -74,6 +80,12 @@ class PetugasController extends Controller
 
     public function update(Request $request)
     {
+        $request->validate([
+            'nama'      => 'required|max:10|min:3',
+            'username'  => 'required|max:20|min:5',
+            'password'  => 'required|max:12|min:5',
+            'profile'   => 'required|mimes:jpg,png,jpeg|max:1024|image'
+        ]);
 
         // $user = User::findOrFail($id);
         // dd($request);

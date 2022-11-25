@@ -81,23 +81,22 @@ class TransaksiController extends Controller
     public function update(Request $request)
     {
         $find = $request->id;
-        $gol  = Golongan::find($find);
+        $gol  = Golongan::find($request->id_golongan);
         
         $old_id = $request->id_golongan;
         $old_gol = Golongan::find($old_id);
         
-        $old_gol->increment('stok');
-        $gol->decrement('stok');
-        dd($gol['stok']);
+        // $old_gol->increment('stok');
+        // $gol->decrement('stok');
+        // dd($old_gol);
+
+        if ($request->id_golongan == $old_gol->id) {
+            $old_gol['jumlah'] = $request->jumlah;
+            dd($old_gol);
+        }
 
 
-        // select data dari golongan dlu
-        // jika berubah golongan nya, increment stok lama
-        // decrement ke stok yang baru  
-
-        // dd($find);
-        Transaksi::find($find)->update($request->all());
-        // $update->update($request->all());
+        // Transaksi::find($find)->update($request->all());
         return redirect()->route('transaksi');
     }
 

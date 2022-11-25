@@ -18,19 +18,33 @@
                             <div class="card-header">
                                 <h4>Tambah Akun Admin</h4>
                             </div>
+
                             <div class="card-body">
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger alert-dismissible show fade">
+                                        <div class="alert-body">
+                                            <button class="close" data-dismiss="alert">
+                                                <span>&times;</span>
+                                            </button>
+                                            Mohon diperiksa kembali form anda.
+                                        </div>
+                                    </div>
+                                    @foreach ($errors->all() as $v)
+                                        <li class="list-group-item list-group-item-danger">{{ $v }}</li>
+                                    @endforeach
+                                @endif
+
                                 {{-- form --}}
                                 <form action="{{ route('account_admin.store') }}" enctype="multipart/form-data"
-                                    method="POST" class="needs-validation" novalidate="">
+                                    method="POST">
                                     {{ csrf_field() }}
                                     <div class="card-body">
                                         <input type="hidden" value="Admin" name="role">
                                         <div class="form-group">
                                             <label>Nama Lengkap</label>
-                                            <input type="text" name="nama" class="form-control" required="" />
-                                            <div class="invalid-feedback">
-                                                Masukkan Nama Lengkap
-                                            </div>
+                                            <input type="text" name="nama" class="form-control"  />
+
                                         </div>
                                         <div class="row">
 
@@ -45,10 +59,8 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="username" class="form-control"
-                                                        required="" />
-                                                    <div class="invalid-feedback">
-                                                        Masukkan Username
-                                                    </div>
+                                                         />
+
                                                 </div>
 
                                             </div>
@@ -62,11 +74,8 @@
                                                             <i class="fas fa-key"></i>
                                                         </div>
                                                     </div>
-                                                    <input type="password" name="password" class="form-control"
-                                                        required="" />
-                                                    <div class="invalid-feedback">
-                                                        Masukkan Password
-                                                    </div>
+                                                    <input type="password" name="password" class="form-control" />
+
                                                 </div>
 
                                             </div>
@@ -77,7 +86,8 @@
                                             <div class="form-group col-md">
                                                 <label>Upload Profil Admin</label>
                                                 <div class="input-group">
-                                                    <input type="file" name="profile" class="custom-file-input" id="customFile">
+                                                    <input type="file" name="profile" class="custom-file-input"
+                                                        id="customFile">
                                                     <label class="custom-file-label" for="customFile">Choose
                                                         file</label>
                                                 </div>

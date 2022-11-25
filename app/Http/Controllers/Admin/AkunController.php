@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -43,6 +44,14 @@ class AkunController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate([
+            'nama'      => 'required|max:10|min:3',
+            'username'  => 'required|max:20|min:5',
+            'password'  => 'required|max:12|min:5',
+            'profile'   => 'required|mimes:jpg,png,jpeg|max:1024|image'
+        ]);
+
+
         $namaGambar = time() . '.' . $request->profile->extension();
 
         $request->profile->move(public_path('image'), $namaGambar);
@@ -51,6 +60,12 @@ class AkunController extends Controller
         $data['profile'] = $namaGambar;
         // dd($data);
         User::create($data);
+        
+        // Validator::make()
+        
+        // if (->fails()) {
+        //     return back()->withInput()->withErrors($validate->messages());
+        // }
 
         return redirect()->route('akun');
     }
@@ -72,6 +87,12 @@ class AkunController extends Controller
 
     public function update(Request $request)
     {
+        $request->validate([
+            'nama'      => 'required|max:10|min:3',
+            'username'  => 'required|max:20|min:5',
+            'password'  => 'required|max:12|min:5',
+            'profile'   => 'required|mimes:jpg,png,jpeg|max:1024|image'
+        ]);
 
         $old = $request->all();
         $find = User::find($request->id);
