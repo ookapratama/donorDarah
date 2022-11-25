@@ -35,18 +35,15 @@
                                 @endif
                                 {{-- form --}}
                                 <form action="{{ route('account_petugas.update') }}" enctype="multipart/form-data"
-                                    method="POST" class="needs-validation" novalidate="">
+                                    method="POST" >
                                     {{ method_field('put') }}
                                     {{ csrf_field() }}
                                     <input type="hidden" name="id" value="{{ $dt->id }}">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label>Nama Lengkap</label>
-                                            <input type="text" name="nama" class="form-control" required=""
+                                            <input type="text" name="nama" class="form-control" 
                                                 value="{{ $dt->nama }}" />
-                                            <div class="invalid-feedback">
-                                                Masukkan Nama Lengkap
-                                            </div>
                                         </div>
                                         <div class="row">
 
@@ -61,10 +58,7 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="username" class="form-control"
-                                                        required="" value="{{ $dt->username }}" />
-                                                    <div class="invalid-feedback">
-                                                        Masukkan Username
-                                                    </div>
+                                                        value="{{ $dt->username }}" />
                                                 </div>
 
                                             </div>
@@ -79,10 +73,7 @@
                                                         </div>
                                                     </div>
                                                     <input type="password" name="password" class="form-control"
-                                                        required="" value="{{ $dt->password }}" />
-                                                    <div class="invalid-feedback">
-                                                        Masukkan Password
-                                                    </div>
+                                                         value="{{ $dt->password }}" />
                                                 </div>
 
                                             </div>
@@ -115,7 +106,7 @@
 
                                                 <div class="input-group">
 
-                                                    <select class="form-control select1" required name="jkl">
+                                                    <select class="form-control select1" name="jkl">
                                                         <option>-- Pilih Gender --</option>
                                                         <option value="Laki-laki"
                                                             {{ $dt->jkl == 'Laki-laki' ? 'Selected' : '' }}>Laki-laki
@@ -144,10 +135,7 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="alamat" class="form-control"
-                                                        required="" value="{{ $dt->alamat }}" />
-                                                    <div class="invalid-feedback">
-                                                        Masukkan Alamat
-                                                    </div>
+                                                         value="{{ $dt->alamat }}" />
                                                 </div>
 
                                             </div>

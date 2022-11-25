@@ -88,10 +88,10 @@ class AkunController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'nama'      => 'required|max:10|min:3',
-            'username'  => 'required|max:20|min:5',
+            'nama'      => 'required|max:50|min:3',
+            'username'  => 'required|max:50|min:5',
             'password'  => 'required|max:12|min:5',
-            'profile'   => 'required|mimes:jpg,png,jpeg|max:1024|image'
+            'profile'   => 'mimes:jpg,png,jpeg|max:1024|image'
         ]);
 
         $old = $request->all();

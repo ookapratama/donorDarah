@@ -35,15 +35,13 @@
                                 @endif
                                 {{-- form --}}
                                 <form action="{{ route('account_petugas.store') }}" enctype="multipart/form-data"
-                                    method="POST" class="needs-validation" novalidate="">
+                                    method="POST" >
                                     {{ csrf_field() }}
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label>Nama Lengkap</label>
-                                            <input type="text" name="nama" class="form-control" required="" />
-                                            <div class="invalid-feedback">
-                                                Masukkan Nama Lengkap
-                                            </div>
+                                            <input type="text" name="nama" class="form-control"  />
+                                            
                                         </div>
                                         <div class="row">
 
@@ -58,10 +56,8 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="username" class="form-control"
-                                                        required="" />
-                                                    <div class="invalid-feedback">
-                                                        Masukkan Username
-                                                    </div>
+                                                         />
+                                                    
                                                 </div>
 
                                             </div>
@@ -76,10 +72,8 @@
                                                         </div>
                                                     </div>
                                                     <input type="password" name="password" class="form-control"
-                                                        required="" />
-                                                    <div class="invalid-feedback">
-                                                        Masukkan Password
-                                                    </div>
+                                                         />
+                                                    
                                                 </div>
 
                                             </div>
@@ -105,7 +99,7 @@
                                                 <div class="input-group">
 
                                                     <select class="form-control select1" name="jkl">
-                                                        <option>-- Silahkan Pilih Gender --</option>
+                                                        <option value="error">-- Silahkan Pilih Gender --</option>
                                                         <option value="Laki-laki">Laki-laki</option>
                                                         <option value="Perempuan">Perempuan</option>
                                                     </select>
@@ -128,10 +122,8 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="alamat" class="form-control"
-                                                        required="" />
-                                                    <div class="invalid-feedback">
-                                                        Masukkan Alamat
-                                                    </div>
+                                                         />
+                                                    
                                                 </div>
 
                                             </div>

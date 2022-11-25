@@ -35,7 +35,7 @@
                             @endif
                             {{-- form --}}
                             <form action="{{ route('account_admin.update') }}" enctype="multipart/form-data"
-                                method="POST" class="needs-validation" novalidate="">
+                                method="POST" >
                                 {{ csrf_field() }}
                                 {{-- @method('put') --}}
                                 <div class="card-body">
@@ -43,10 +43,8 @@
                                     <div class="form-group">
                                         <label>Nama Lengkap</label>
                                         <input type="text" name="nama" value="{{ $dt->nama }}"
-                                            class="form-control" required="" />
-                                        <div class="invalid-feedback">
-                                            Masukkan Nama Lengkap
-                                        </div>
+                                            class="form-control"  />
+                                        
                                     </div>
                                     <div class="row">
 
@@ -61,10 +59,8 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" name="username" value="{{ $dt->username }}"
-                                                    class="form-control" required="" />
-                                                <div class="invalid-feedback">
-                                                    Masukkan Username
-                                                </div>
+                                                    class="form-control"  />
+                                                
                                             </div>
 
                                         </div>
@@ -79,10 +75,8 @@
                                                     </div>
                                                 </div>
                                                 <input type="password" value="{{ $dt->password }}" name="password"
-                                                    class="form-control" required="" />
-                                                <div class="invalid-feedback">
-                                                    Masukkan Password
-                                                </div>
+                                                    class="form-control"  />
+                                                
                                             </div>
 
                                         </div>
