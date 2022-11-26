@@ -19,6 +19,20 @@
                                 <h4>Tambah Stok</h4>
                             </div>
                             <div class="card-body">
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger alert-dismissible show fade">
+                                        <div class="alert-body">
+                                            <button class="close" data-dismiss="alert">
+                                                <span>&times;</span>
+                                            </button>
+                                            Mohon diperiksa kembali form anda.
+                                        </div>
+                                    </div>
+                                    @foreach ($errors->all() as $v)
+                                        <li class="list-group-item list-group-item-danger">{{ $v }}</li>
+                                    @endforeach
+                                @endif
                                 {{-- form --}}
                                 <form action="{{ route('stok.store') }}" enctype="multipart/form-data" method="POST">
                                     {{ csrf_field() }}
@@ -30,7 +44,7 @@
 
                                                 <div class="input-group">
 
-                                                    <select class="form-control select1" required name="id_golongan">
+                                                    <select class="form-control select1" name="id_golongan">
                                                         <option>-- Golongan Darah --</option>
                                                         @foreach ($golongan as $gol)
                                                             <option value="{{ $gol->id }}">{{ $gol->golongan }}
@@ -43,11 +57,11 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label> Jumlah Darah</label>
-                                                <input type="number" name="jumlah" class="form-control"> 
+                                                <input type="number" name="jumlah" class="form-control">
                                             </div>
                                         </div>
                                         <div class="row">
-                                            
+
 
                                         </div>
 

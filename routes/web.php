@@ -18,9 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('dashboard');
 // });
 
-
 // Admin
-Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['web']], function () {
+Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin'], function () {
 
     Route::get('/', 'DashboardController@index')->name('dashboards');
 

@@ -45,6 +45,11 @@ class StokController extends Controller
     public function store(Request $request)
     {
         // $sum = 0;
+        $request->validate([
+            'id_golongan'     => 'required',
+            'jumlah'          => 'required',
+        ]);
+
         Stok::create($request->all());
         
         $count_stok = $request->id_golongan;
@@ -85,6 +90,11 @@ class StokController extends Controller
 
     public function update(Request $request)
     {
+        $request->validate([
+            'id_golongan'     => 'required',
+            'jumlah'          => 'required',
+        ]);
+
         $id = $request->id_golongan;
         $sum = Golongan::find($id);
         
@@ -120,8 +130,7 @@ class StokController extends Controller
         $delete = Stok::find($id);
         $find_gol = $delete->id_golongan;
         $gol = Golongan::find($find_gol);
-        $gol['stok'] = $gol->jumlah - ($gol->jumlah - $delete->jumlah);
-        
+        $gol['stok'] =  $gol->stok - $delete->jumlah;
         // dd($gol['jumlah']);
 
         $gol->update([

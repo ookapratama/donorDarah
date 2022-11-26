@@ -46,6 +46,13 @@ class TransaksiController extends Controller
 
     public function store(Request $request)
     {   
+        $request->validate([
+            'nama'          => 'required|max:50|min:3',
+            'id_golongan'   => 'required',
+            'tgl_lahir'     => 'required',
+            'jkl'           => 'required',
+            'alamat'        => 'required'
+        ]);
         // dd($request);
         $id_gol = $request->id_golongan;
         $gol = Golongan::find($id_gol);
@@ -58,13 +65,18 @@ class TransaksiController extends Controller
     }
 
     public function show($id)
-    {
+    {   
 
         $dt = Transaksi::find($id);    
         $jkl = Transaksi::get();
         $gol = Golongan::get();
         $date = Carbon::now()->format('Y-m-d');
         // dd($gol->id);
+        
+        $gol1 = Golongan::find($id);
+        dump($dt->id_golongan);
+        dump($gol1->id);
+        dd($id);
         $data = array(
             'title'     => $this->title,
             'content'   => 'admin/transaksi/edit',
@@ -78,8 +90,17 @@ class TransaksiController extends Controller
         return view('layouts.app', $data);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id_gol)
     {
+
+        $request->validate([
+            'nama'          => 'required|max:50|min:3',
+            'id_golongan'   => 'required',
+            'tgl_lahir'     => 'required',
+            'jkl'           => 'required',
+            'alamat'        => 'required'
+        ]);
+
         $find = $request->id;
         $gol  = Golongan::find($request->id_golongan);
         

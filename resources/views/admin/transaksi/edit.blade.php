@@ -19,6 +19,21 @@
                                 <h4>Edit Transaksi</h4>
                             </div>
                             <div class="card-body">
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger alert-dismissible show fade">
+                                        <div class="alert-body">
+                                            <button class="close" data-dismiss="alert">
+                                                <span>&times;</span>
+                                            </button>
+                                            Mohon diperiksa kembali form anda.
+                                        </div>
+                                    </div>
+                                    @foreach ($errors->all() as $v)
+                                        <li class="list-group-item list-group-item-danger">{{ $v }}</li>
+                                    @endforeach
+                                @endif
+
                                 {{-- form --}}
                                 <form action="{{ route('transaksi.update') }}" enctype="multipart/form-data" method="POST">
                                     {{ csrf_field() }}
@@ -29,18 +44,16 @@
 
                                             <div class="form-group col-md">
                                                 <label>Nama Lengkap</label>
-                                                <input type="text" name="nama" class="form-control" required=""
+                                                <input type="text" name="nama" class="form-control" 
                                                     value="{{ $dt->nama }}" />
-                                                <div class="invalid-feedback">
-                                                    Masukkan Nama Lengkap
-                                                </div>
+                                                
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label>Golongan Darah</label>
 
                                                 <div class="input-group">
                                                     {{-- {{ $golongan }} --}}
-                                                    <select class="form-control select1" required name="id_golongan">
+                                                    <select class="form-control select1"  name="id_golongan">
                                                         <option>-- Golongan Darah --</option>
                                                         @foreach ($golongan as $gol)
                                                             <option value="{{ $gol->id }}" {{ $dt->id_golongan == $gol->id ? 'Selected' : '' }}>
@@ -59,7 +72,7 @@
                                             <div class="form-group col-md-3">
                                                 <label>Tanggal Lahir</label>
                                                 <input type="date" class="form-control" name="tgl_lahir"
-                                                    value="{{ $dt->tgl_lahir }}" required>
+                                                    value="{{ $dt->tgl_lahir }}" >
                                             </div>
 
                                             <div class="form-group col-md-3">
@@ -67,7 +80,7 @@
 
                                                 <div class="input-group">
 
-                                                    <select class="form-control select1" required name="jkl">
+                                                    <select class="form-control select1"  name="jkl">
                                                         <option>-- Pilih Gender --</option>
                                                             <option value="Laki-laki" {{ $dt->jkl == 'Laki-laki' ?  'Selected' : '' }} >Laki-laki</option>
                                                             <option value="Perempuan" {{ $dt->jkl == 'Perempuan' ? 'Selected' : '' }} >Perempuan</option>
@@ -80,11 +93,9 @@
 
                                             <div class="form-group col-md">
                                                 <label>Alamat</label>
-                                                <input type="text" name="alamat" class="form-control" required=""
+                                                <input type="text" name="alamat" class="form-control"
                                                     value="{{ $dt->alamat }}" />
-                                                <div class="invalid-feedback">
-                                                    Masukkan Alamat Lengkap
-                                                </div>
+                                                
                                             </div>
 
                                         </div>

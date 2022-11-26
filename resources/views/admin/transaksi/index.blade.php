@@ -76,7 +76,7 @@
                                                      {{ $v->status }}
                                                  </td>
                                                  <td>
-                                                     <form action="{{ route('transaksi.delete', $v->id) }}"
+                                                     <form action="{{ route('transaksi.delete', $v->id ) }}"
                                                          method="POST">
                                                          <a href="{{ route('transaksi.show', $v->id) }}"
                                                              class="btn btn-primary btn-action mr-1"
