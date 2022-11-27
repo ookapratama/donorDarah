@@ -17,6 +17,19 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('dashboard');
 // });
+// Login
+Route::group(['prefix' => '/masuk', 'namespace' => 'App\Http\Controllers\Auth'], function () {
+
+    Route::get('/login', 'LoginController@login')->name('login');
+    Route::post('/login', 'LoginController@login_action')->name('login.action');
+    Route::get('/register', 'LoginController@register')->name('register');
+    Route::post('/register', 'LoginController@register_action')->name('register.action');
+    Route::get('/forget_password', 'LoginController@forget_password')->name('forget_password');
+    Route::post('/forget_password', 'LoginController@forget_password_action')->name('forget_password.action');
+    Route::get('/logout', 'LoginController@logout')->name('logout');
+
+
+});
 
 // Admin
 Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin'], function () {

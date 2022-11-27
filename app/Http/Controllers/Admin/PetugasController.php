@@ -13,6 +13,9 @@ class PetugasController extends Controller
     protected $title = 'Data Petugas';
     public function index()
     {
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
 
         // $dt = DB::table('users')->where('role', 'Petugas')->get();
         $dt = User::where('role', 'Petugas')->get();
@@ -33,6 +36,10 @@ class PetugasController extends Controller
     public function data()
     {
 
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
+
         $data = array(
             'title'     => $this->title,
             'content'   => 'admin/petugas/tambah'
@@ -45,8 +52,8 @@ class PetugasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama'      => 'required|max:50|min:3',
-            'username'  => 'required|max:50|min:5',
+            'nama'      => 'required|max:100|min:3',
+            'username'  => 'required|max:100|min:5',
             'password'  => 'required|max:12|min:5',
             'profile'   => 'required|mimes:jpg,png,jpeg|max:1024|image',
             'alamat'    => 'required',
@@ -68,6 +75,9 @@ class PetugasController extends Controller
 
     public function show($id)
     {
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
 
         // $dt = DB::table('users')->where('id', $id)->first();
         $dt = User::find($id);
@@ -84,9 +94,9 @@ class PetugasController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'nama'      => 'required|max:50|min:3',
-            'username'  => 'required|max:50|min:5',
-            'password'  => 'required|max:12|min:5',
+            'nama'      => 'required|max:100|min:3',
+            'username'  => 'required|max:100|min:5',
+            // 'password'  => 'required|max:12|min:5',
             'profile'   => 'mimes:jpg,png,jpeg|max:1024|image',
             'alamat'    => 'required',
             'tgl_lahir' => 'required'

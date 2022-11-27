@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="row">
 
-                                        <div class="form-group col-md">
+                                        <div class="form-group col-md-6">
                                             <label>Username</label>
 
                                             <div class="input-group">
@@ -64,26 +64,6 @@
                                             </div>
 
                                         </div>
-                                        <div class="form-group col-md">
-                                            <label>Password</label>
-
-                                            <div class="input-group">
-
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fas fa-key"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="password" value="{{ $dt->password }}" name="password"
-                                                    class="form-control"  />
-                                                
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
                                         <div class="form-group col-md-3">
                                             <label>Upload Profil Admin</label>
                                             <div class="input-group">
@@ -100,6 +80,11 @@
                                             </div>
 
                                         </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        
 
                                         <div class="form-group col-md-5">
                                             <input type="hidden" value="Admin" name="role">

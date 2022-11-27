@@ -37,6 +37,7 @@
  <script src="{{ asset('assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js')}}"></script>
  <script src="{{ asset('assets/node_modules/select2/dist/js/select2.full.min.js')}}"></script>
  <script src="{{ asset('assets/node_modules/selectric/public/jquery.selectric.min.js')}}"></script>
+ <script src="{{ asset('assets/node_modules/sweetalert/dist/sweetalert.min.js')}}"></script>
 
 
 <!-- Template JS File -->
@@ -47,6 +48,7 @@
 <script src="{{ asset('assets/js/page/index-0.js') }}"></script>
 <script src="{{ asset('assets/js/page/forms-advanced-forms.js')}}"></script>
 <script src="{{ asset('assets/js/page/modules-ion-icons.js')}}"></script>
+<script src="{{ asset('assets/js/page/modules-sweetalert.js')}}"></script>
 
 
 </body>

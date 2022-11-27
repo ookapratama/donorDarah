@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('alamat')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->enum('role', ['Admin', 'Petugas']);
+            $table->enum('aktif', [1, 0])->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

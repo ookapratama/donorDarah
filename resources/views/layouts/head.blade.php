@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{{ asset('assets/node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/node_modules/ionicons201/css/ionicons.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/node_modules/bootstrap-social/bootstrap-social.css')}}">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">

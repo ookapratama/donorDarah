@@ -14,6 +14,9 @@ class StokController extends Controller
     protected $title = 'Data Stok Darah';
     public function index()
     {
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
 
         $dt = Stok::get();
         
@@ -30,6 +33,9 @@ class StokController extends Controller
 
     public function data()
     {
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
         $date = Carbon::now()->format('Y-m-d H:i:s');
         $gol = Golongan::get();
         $data = array(
@@ -68,6 +74,9 @@ class StokController extends Controller
 
     public function show($id)
     {
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
 
         $dt = Stok::find($id);    
         $stok = Stok::get();

@@ -16,7 +16,7 @@
                     <div class="col-10">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Tambah Akun Petugas</h4>
+                                <h4>Edit Akun Petugas</h4>
                             </div>
                             <div class="card-body">
 
@@ -62,21 +62,7 @@
                                                 </div>
 
                                             </div>
-                                            <div class="form-group col-md">
-                                                <label>Password</label>
-
-                                                <div class="input-group">
-
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-key"></i>
-                                                        </div>
-                                                    </div>
-                                                    <input type="password" name="password" class="form-control"
-                                                         value="{{ $dt->password }}" />
-                                                </div>
-
-                                            </div>
+                                            
                                         </div>
 
                                         <div class="row">

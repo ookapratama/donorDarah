@@ -4,16 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Dotenv\Validator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class AkunController extends Controller
 {
     protected $title = 'Data Admin';
     public function index()
-    {
+    {   
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
 
         // $dt = DB::table('users')->where('role', 'Admin')->get();
         $dt = User::where('role', 'Admin')->get();
@@ -31,6 +33,9 @@ class AkunController extends Controller
 
     public function data()
     {
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
 
         $data = array(
             'title'     => $this->title,
@@ -45,9 +50,9 @@ class AkunController extends Controller
     {
 
         $request->validate([
-            'nama'      => 'required|max:10|min:3',
-            'username'  => 'required|max:20|min:5',
-            'password'  => 'required|max:12|min:5',
+            'nama'      => 'required|max:100|min:3',
+            'username'  => 'required|max:100|min:5',
+            'password'  => 'required|max:100|min:5',
             'profile'   => 'required|mimes:jpg,png,jpeg|max:1024|image'
         ]);
 
@@ -58,7 +63,11 @@ class AkunController extends Controller
 
         $data = $request->all();
         $data['profile'] = $namaGambar;
-        // dd($data);
+        $data['password'] = encrypt($request->password);
+        // dd($data['password']);
+        
+        // dd($request->password);
+
         User::create($data);
         
         // Validator::make()
@@ -72,10 +81,17 @@ class AkunController extends Controller
 
     public function show($id)
     {
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
 
         $dt = User::find($id);
+        // $pass = $dt->password;
+        // dd($pass);
+        // $decrypt = Crypt::decrypt($pass);
 
-        // dd($dt);
+        // dd($decrypt);
+        
         $data = array(
             'title'     => $this->title,
             'content'   => 'admin/akun/edit',
@@ -88,9 +104,9 @@ class AkunController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'nama'      => 'required|max:50|min:3',
-            'username'  => 'required|max:50|min:5',
-            'password'  => 'required|max:12|min:5',
+            'nama'      => 'required|max:100|min:3',
+            'username'  => 'required|max:100|min:5',
+            // 'password'  => 'required|max:100|min:5',
             'profile'   => 'mimes:jpg,png,jpeg|max:1024|image'
         ]);
 

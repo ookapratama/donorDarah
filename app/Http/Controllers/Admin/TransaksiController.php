@@ -14,6 +14,9 @@ class TransaksiController extends Controller
     protected $title = 'Data Transaksi';
     public function index()
     {
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
 
         $dt = Transaksi::get();
         $i = 1;
@@ -30,6 +33,11 @@ class TransaksiController extends Controller
 
     public function data()
     {
+
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
+
         $date = Carbon::now()->format('Y-m-d');
         $gol = Golongan::where('stok', '>', 0)->get();
         
@@ -66,6 +74,9 @@ class TransaksiController extends Controller
 
     public function show($id)
     {   
+        if (Session()->get('username') == "") {
+            return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
+        }
 
         $dt = Transaksi::find($id);    
         $jkl = Transaksi::get();

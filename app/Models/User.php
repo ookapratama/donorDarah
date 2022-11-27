@@ -25,7 +25,8 @@ class User extends Authenticatable
         'jkl',
         'alamat',
         'tgl_lahir',
-        'role'
+        'role',
+        'aktif'
     ];
 
     /**
