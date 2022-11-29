@@ -31,6 +31,13 @@ Route::group(['prefix' => '/masuk', 'namespace' => 'App\Http\Controllers\Auth'],
 
 });
 
+Route::group(['prefix' => '/', 'namespace' => 'App\Http\Controllers\User'], function () {
+
+    Route::get('/', 'HomeController@index')->name('index');
+
+});
+
+
 // Admin
 Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin'], function () {
 
