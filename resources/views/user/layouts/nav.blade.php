@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg px-3 py-3 bg-danger fixed-top">
+<nav class="navbar navbar-expand-lg px-3 py-3 bg-danger fixed-top" style="margin-bottom:100px ;">
     <div class="container-fluid ">
       <a class="navbar-brand text-light me-5 fw-bold fs-2 me" href="{{ route('index') }}">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,10 +10,10 @@
             <a class="nav-link text-light " aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">About</a>
+            <a class="nav-link text-light" href="#about">About</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link text-light" href="#" role="button" aria-expanded="false">
+            <a class="nav-link text-light" href="#galeri" role="button" aria-expanded="false">
               Gallery
             </a>
             
