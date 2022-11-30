@@ -21,9 +21,12 @@
     <link rel="stylesheet" href="{{ asset('assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/node_modules/ionicons201/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/node_modules/bootstrap-social/bootstrap-social.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/node_modules/owl.carousel/dist/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css')}}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
 
 </head>
+
 <body>

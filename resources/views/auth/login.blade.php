@@ -72,6 +72,10 @@
                                     Belum punya akun ?
                                     <a href="{{ route('register') }}" class="text-danger">Daftar disini</a>
                                 </div>
+                                <div class="text-job text-muted">
+                                    Kembali ke 
+                                    <a href="{{ route('index') }}" class="text-danger">home</a>
+                                </div>
                             </div>
 
                         </div>
