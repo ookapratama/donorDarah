@@ -43,8 +43,7 @@
 
                                             <div class="form-group col-md">
                                                 <label>Nama Lengkap</label>
-                                                <input type="text" name="nama" class="form-control"
-                                                     />
+                                                <input type="text" name="nama" class="form-control"/>
                                                 
                                             </div>
                                             <div class="form-group col-md-3">
@@ -65,7 +64,6 @@
                                             </div>
                                         </div>
                                         <div class="row">
-
 
                                             <div class="form-group col-md-3">
                                                 <label>Tanggal Lahir</label>
