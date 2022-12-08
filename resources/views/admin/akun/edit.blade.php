@@ -46,6 +46,12 @@
                                             class="form-control"  />
                                         
                                     </div>
+                                    <div class="form-group">
+                                        <label>Alamat</label>
+                                        <input type="text" name="alamat" value="{{ $dt->alamat }}"
+                                            class="form-control"  />
+                                        
+                                    </div>
                                     <div class="row">
 
                                         <div class="form-group col-md-6">

@@ -93,6 +93,14 @@
                                                 </div>
 
                                             </div>
+                                            <div class="form-group col-md">
+                                                <label>Alamat</label>
+                                                <div class="input-group">
+                                                    <input type="text" name="alamat" class="form-control"
+                                                        id="text">
+                                                </div>
+
+                                            </div>
 
 
                                         </div>

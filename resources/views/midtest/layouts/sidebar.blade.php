@@ -66,22 +66,7 @@
                     <li><a class="nav-link" href="{{ route('transaksi.tambah') }}">Tambah Transaksi</a></li>
                 </ul>
             </li>
-
-            <li class="menu-header">Data Kuliah</li>
-
-            <li class="nav-item dropdown">
-                <a href="{{ route('mid') }}" class=""><i class=""></i>
-                    <span>Mid</span>
-                </a>
-                
-            </li>
             
-            <li class="nav-item dropdown">
-                <a href="#" class=""><i class=""></i>
-                    <span>Final</span>
-                </a>
-                
-            </li>
             
             
         </ul>

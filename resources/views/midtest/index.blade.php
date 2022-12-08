@@ -4,11 +4,11 @@
          <div class="section-header">
              <h1>{{ $title }}</h1>
              <div class="section-header-breadcrumb">
-                 <div class="breadcrumb-item active">
+                 <!-- <div class="breadcrumb-item active">
                      <a href="{{ route('dashboards') }}">Dashboard</a>
-                 </div>
+                 </div> -->
                  <div class="breadcrumb-item">
-                     <a href="{{ route('akun') }}">Admin</a>
+                     <a href="{{ route('mid') }}">Mid</a>
                  </div>
              </div>
          </div>
@@ -27,7 +27,7 @@
                                  <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                              </div>
                              <div class="m-3 mr-4">
-                                 <a href="{{ route('account_admin.tambah') }}"
+                                 <a href="{{ route('mid.tambah') }}"
                                      class="btn btn-success text-right p-2 px-3"><i class="fas fa-plus"></i> Tambah </a>
                              </div>
                          </div>
@@ -39,39 +39,29 @@
                                              <th width="5%" class="text-center">
                                                  No
                                              </th>
-                                             <th width="5%" class="text-center">Profile</th>
                                              <th>Nama Lengkap</th>
-                                             <th>Username</th>
-                                             <th>Role</th>
-                                             <th>alamat</th>
-                                             <th width="15%">Action</th>
+                                             <th>Alamat</th>
+                                             <th>No_hp</th>
+                                             <th width="13%">Action</th>
                                          </tr>
                                      </thead>
                                      <tbody>
                                          @foreach ($data as $v)
                                              <tr>
                                                  <td>{{ $no++ }}</td>
-                                                 <td>
-                                                     <img alt="{{ $v->nama }}"
-                                                         src="{{ asset('image/' . $v->profile) }}"
-                                                         class="rounded-circle m-3" width="80" data-toggle="tooltip"
-                                                         title="{{ $v->nama }}" />
-                                                 </td>
+                                                 
                                                  <td>
                                                      {{ $v->nama }}
                                                  </td>
                                                  <td class="align-middle">
-                                                     {{ $v->username }}
-                                                 </td>
-                                                 <td class="align-middle">
-                                                     {{ $v->role }}
-                                                 </td>
-                                                 <td class="align-middle">
                                                      {{ $v->alamat }}
                                                  </td>
+                                                   <td class="align-middle">
+                                                     {{ $v->no_hp }}
+                                                 </td>
                                                  <td>
-                                                     <form action="{{ route('account_admin.delete', $v->id) }}" method="POST">
-                                                        <a href="{{ route('account_admin.show', $v->id) }}"
+                                                     <form action="{{ route('mid.delete', $v->id) }}" method="POST">
+                                                        <a href="{{ route('mid.show', $v->id) }}"
                                                             class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
                                                             title="Edit"><i class="fas fa-pencil-alt"></i>
                                                         </a>

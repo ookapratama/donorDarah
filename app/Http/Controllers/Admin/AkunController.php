@@ -53,6 +53,7 @@ class AkunController extends Controller
             'nama'      => 'required|max:100|min:3',
             'username'  => 'required|max:100|min:5',
             'password'  => 'required|max:100|min:5',
+            'alamat'    => 'required|max:100|min:5',
             'profile'   => 'required|mimes:jpg,png,jpeg|max:1024|image'
         ]);
 
@@ -107,6 +108,7 @@ class AkunController extends Controller
             'nama'      => 'required|max:100|min:3',
             'username'  => 'required|max:100|min:5',
             // 'password'  => 'required|max:100|min:5',
+            'alamat'    => 'required|max:100|min:5',
             'profile'   => 'mimes:jpg,png,jpeg|max:1024|image'
         ]);
 
