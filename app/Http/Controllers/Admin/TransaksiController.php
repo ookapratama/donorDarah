@@ -61,12 +61,20 @@ class TransaksiController extends Controller
             'jkl'           => 'required',
             'alamat'        => 'required'
         ]);
-        // dd($request);
-        $id_gol = $request->id_golongan;
-        $gol = Golongan::find($id_gol);
 
+        $find = $request->id_golongan;
+        $gol  = Golongan::find($find);
+        $sum = Stok::where('id_golongan', $find)->sum('jumlah');
+        $n = $gol->stok - 1;
 
-        $gol->decrement('stok');
+        $trans = $gol->stok - $n;
+        $stok = $gol->stok - $trans;
+        
+        $gol->stok = $stok;
+        $gol->save();
+        
+        // $gol->decrement('stok');
+
 
         Transaksi::create($request->all());
         return redirect()->route('transaksi');
@@ -80,14 +88,14 @@ class TransaksiController extends Controller
 
         $dt = Transaksi::find($id);    
         $jkl = Transaksi::get();
-        $gol = Golongan::get();
+        $gol = Golongan::where('stok', '>', 0)->get();
         $date = Carbon::now()->format('Y-m-d');
         // dd($gol->id);
         
         $gol1 = Golongan::find($id);
-        dump($dt->id_golongan);
-        dump($gol1->id);
-        dd($id);
+        // dump($dt->id_golongan);
+        // dump($gol1->id);
+        // dd($id);
         $data = array(
             'title'     => $this->title,
             'content'   => 'admin/transaksi/edit',
@@ -101,7 +109,7 @@ class TransaksiController extends Controller
         return view('layouts.app', $data);
     }
 
-    public function update(Request $request, $id_gol)
+    public function update(Request $request)
     {
 
         $request->validate([
@@ -112,23 +120,12 @@ class TransaksiController extends Controller
             'alamat'        => 'required'
         ]);
 
-        $find = $request->id;
-        $gol  = Golongan::find($request->id_golongan);
+        $find = $request->id_golongan;
+        $gol  = Golongan::find($find);
+
+        $old_gol = Transaksi::find($find);
         
-        $old_id = $request->id_golongan;
-        $old_gol = Golongan::find($old_id);
-        
-        // $old_gol->increment('stok');
-        // $gol->decrement('stok');
-        // dd($old_gol);
 
-        if ($request->id_golongan == $old_gol->id) {
-            $old_gol['jumlah'] = $request->jumlah;
-            dd($old_gol);
-        }
-
-
-        // Transaksi::find($find)->update($request->all());
         return redirect()->route('transaksi');
     }
 

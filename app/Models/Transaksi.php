@@ -23,5 +23,9 @@ class Transaksi extends Model
       return $this->hasOne('App\Models\Golongan', 'id', 'id_golongan');
     }
 
+  //   public function stok() {
+  //     return $this->hasOne('App\Models\Stok', 'id', 'id_stok');
+  // }
+
 
 }

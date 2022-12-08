@@ -20,25 +20,25 @@ class GolonganTableSeeder extends Seeder
                 [
                     'golongan'      => 'A',
                     'gambar'        => 'A-big.png',
-                    'stok'          => 50,
+                    // 'stok'          => 50,
                     'created_at'    => new \DateTime
                 ],
                 [
                     'golongan'      => 'B',
                     'gambar'        => 'B-big.png',
-                    'stok'          => 50,
+                    // 'stok'          => 50,
                     'created_at'    => new \DateTime
                 ],
                 [
                     'golongan'      => 'AB',
                     'gambar'        => 'AB-big.png',
-                    'stok'          => 50,
+                    // 'stok'          => 50,
                     'created_at'    => new \DateTime
                 ],
                 [
                     'golongan'      => 'O',
                     'gambar'        => 'O-big.png',
-                    'stok'          => 50,
+                    // 'stok'          => 50,
                     'created_at'    => new \DateTime
                 ],
             ];
