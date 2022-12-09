@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('dashboard');
 // });
-// Login
+// Loginr
 Route::group(['prefix' => '/masuk', 'namespace' => 'App\Http\Controllers\Auth'], function () {
 
     Route::get('/login', 'LoginController@login')->name('login');
@@ -34,6 +34,9 @@ Route::group(['prefix' => '/masuk', 'namespace' => 'App\Http\Controllers\Auth'],
 Route::group(['prefix' => '/', 'namespace' => 'App\Http\Controllers\User'], function () {
 
     Route::get('/', 'HomeController@index')->name('index');
+    // Route::get('/midtest', 'HomeController@mid')->name('mid');
+
+
 
 });
 
@@ -93,6 +96,23 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin']
 
     }); 
 
-    
+        
 
 });
+
+Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Kuliah'], function () {
+
+    Route::group(['prefix' => '/mid'], function () {
+
+        Route::get('/', 'MidController@index')->name('mid');
+        Route::get('/data', 'MidController@data')->name('mid.tambah');
+        Route::post('/store', 'MidController@store')->name('mid.store');
+        Route::get('/show/{id}', 'MidController@show')->name('mid.show');
+        Route::put('/update', 'MidController@update')->name('mid.update');
+        Route::delete('delete/{id}', 'MidController@destroy')->name('mid.delete');
+
+    }); 
+
+});
+
+

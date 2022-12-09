@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Golongan;
+use App\Models\User;
+use App\Models\Mid;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,4 +23,9 @@ class HomeController extends Controller
         return view('user.layouts.app', $data);
 
     }
+
+ 
+
+    
+
 }
