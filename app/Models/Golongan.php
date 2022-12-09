@@ -13,5 +13,4 @@ class Golongan extends Model
         'golongan',
         'stok'
     ];
-
 }
