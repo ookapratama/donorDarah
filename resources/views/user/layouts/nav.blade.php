@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg px-3 py-3 bg-danger fixed-top" style="margin-bottom:100px ;">
+<nav class="navbar navbar-expand-lg px-3 py-3 bg-danger fixed-top" ">
     <div class="container-fluid ">
-      <a class="navbar-brand text-light me-5 fw-bold fs-2 me" href="{{ route('index') }}">Navbar</a>
+      <a class="navbar-brand text-light me-5 fw-bold fs-2 me" href="{{ route('index') }}"><img src="{{ asset('image/home/PMI.png') }}" alt=""> </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
