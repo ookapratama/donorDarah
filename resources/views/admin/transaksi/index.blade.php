@@ -26,26 +26,27 @@
                                      aria-label="Search" data-width="250">
                                  <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                              </div> -->
-                                <form method="post" action=" " >
-                             
-                             <div class=" d-flex"> 
-                                    <div class="m-3 ml-4 ">
-                                        <input type="date" class="form-control" name="tgl_awal" >
-                                    </div>
-                                    
-                                    <div class="m-3 ml-4 ">
-                                        <input type="date" class="form-control" name="tgl_akhir" >
-                                    </div>
-                                    <button type="submit" name="submit" class="btn btn-dark d-block">Sortir</button>
-                                 
-                                </div> 
-                                </form>
-                             
+                             <form method="GET" action="{{ route('transaksi') }}">
+
+                                 <div class=" d-flex">
+                                     <div class="m-3 ml-4 ">
+                                         <input type="date" class="form-control" name="tgl_awal">
+                                     </div>
+
+                                     <div class="m-3 ml-4 ">
+                                         <input type="date" class="form-control" name="tgl_akhir">
+                                     </div>
+                                     <button type="submit" name="submit" class="btn btn-dark d-block">Sortir</button>
+                                 </div>
+
+                             </form>
+
                              <div class="m-3 mr-4">
                                  <a href="{{ route('transaksi.tambah') }}"
                                      class="btn btn-success text-right p-2 px-3"><i class="fas fa-plus"></i> Tambah </a>
                              </div>
                          </div>
+
                          <div class="card-body">
                              <div class="table-responsive">
                                  <table class="table table-striped table-hover" id="table-1">
@@ -58,16 +59,16 @@
                                              <th width="5%">Golongan</th>
                                              <th width="20%">Alamat</th>
                                              <th width="10%">Tanggal Lahir</th>
-                                             <th >Gender</th>
+                                             <th>Gender</th>
                                              <th>Tanggal Keluar</th>
                                              <th>Status</th>
                                              <th width="15%">Action</th>
                                          </tr>
                                      </thead>
                                      <tbody>
-                                         @foreach ($data as $v)
+                                         @foreach ($data as $i => $v)
                                              <tr>
-                                                 <td>{{ $no++ }}</td>
+                                                 <td>{{ ++$i }}</td>
                                                  <td>
                                                      {{ $v->nama }}
                                                  </td>
@@ -83,7 +84,7 @@
                                                  <td>
                                                      {{ $v->jkl }}
                                                  </td>
-                                                 
+
                                                  <td class="align-middle">
                                                      {{ $v->tgl_keluar }}
                                                  </td>
@@ -91,7 +92,7 @@
                                                      {{ $v->status }}
                                                  </td>
                                                  <td>
-                                                     <form action="{{ route('transaksi.delete', $v->id ) }}"
+                                                     <form action="{{ route('transaksi.delete', $v->id) }}"
                                                          method="POST">
                                                          <a href="{{ route('transaksi.show', $v->id) }}"
                                                              class="btn btn-primary btn-action mr-1"

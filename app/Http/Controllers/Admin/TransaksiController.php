@@ -12,13 +12,23 @@ use Illuminate\Http\Request;
 class TransaksiController extends Controller
 {
     protected $title = 'Data Transaksi';
-    public function index()
+    public function index(Request $request)
     {
         if (Session()->get('username') == "") {
             return redirect()->route('login')->with(['warning' => 'Mohon maaf, Anda belum login']);
         }
 
-        $dt = Transaksi::get();
+        $dari = $request->tgl_awal;
+        $sampai = $request->tgl_akhir;
+        
+        if(isset($request->tgl_awal) || isset($request->tgl_akhir) ) {
+            $dt = Transaksi::whereBetween('tgl_keluar', [$dari, $sampai])->get();
+            // dd($tes);
+        }
+        else {
+            $dt = Transaksi::get();
+        }
+
         $i = 1;
 
         $data = array(
@@ -27,6 +37,8 @@ class TransaksiController extends Controller
             'data'      => $dt,
             'no'        => $i
         );
+
+
 
         return view('layouts.app', $data);
     }
@@ -136,4 +148,22 @@ class TransaksiController extends Controller
         
         return redirect()->route('transaksi');
     }
+
+    public function cari (Request $request) {
+
+        $dari = $request->tgl_awal;
+        $sampai = $request->tgl_akhir;
+
+        $tes = Transaksi::whereBetween('tgl_keluar', [$dari, $sampai])->get();
+
+        // dd($tes);
+        // $data = array (
+
+        // );
+
+
+        return redirect()->route('transaksi', ['data' => $tes]);
+
+    }
+
 }

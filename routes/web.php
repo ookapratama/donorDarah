@@ -87,6 +87,7 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin']
         Route::get('/show/{id}', 'TransaksiController@show')->name('transaksi.show');
         Route::put('/update', 'TransaksiController@update')->name('transaksi.update');
         Route::delete('delete/{id}', 'TransaksiController@destroy')->name('transaksi.delete');
+        Route::get('/cari', 'TransaksiController@cari')->name('transaksi.cari');
 
     }); 
     
