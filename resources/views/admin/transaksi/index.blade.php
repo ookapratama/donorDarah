@@ -21,11 +21,26 @@
                      <div class="card">
 
                          <div class="d-flex justify-content-between">
-                             <div class=" d-flex m-3 ml-4">
+                             <!-- <div class=" d-flex m-3 ml-4">
                                  <input class="form-control py-3" type="search" placeholder="Search"
                                      aria-label="Search" data-width="250">
                                  <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-                             </div>
+                             </div> -->
+                                <form method="post" action=" " >
+                             
+                             <div class=" d-flex"> 
+                                    <div class="m-3 ml-4 ">
+                                        <input type="date" class="form-control" name="tgl_awal" >
+                                    </div>
+                                    
+                                    <div class="m-3 ml-4 ">
+                                        <input type="date" class="form-control" name="tgl_akhir" >
+                                    </div>
+                                    <button type="submit" name="submit" class="btn btn-dark d-block">Sortir</button>
+                                 
+                                </div> 
+                                </form>
+                             
                              <div class="m-3 mr-4">
                                  <a href="{{ route('transaksi.tambah') }}"
                                      class="btn btn-success text-right p-2 px-3"><i class="fas fa-plus"></i> Tambah </a>
